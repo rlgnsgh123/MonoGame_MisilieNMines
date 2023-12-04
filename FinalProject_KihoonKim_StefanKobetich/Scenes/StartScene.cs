@@ -1,4 +1,4 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Scenes;
+﻿
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scene
+namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
     public class StartScene : GameScene
     {

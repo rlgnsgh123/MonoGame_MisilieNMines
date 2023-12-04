@@ -1,4 +1,4 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Scene;
+﻿
 using FinalProject_KihoonKim_StefanKobetich.Scenes;
 using FinalProject_KihoonKim_StefanKobetich.Shared;
 using Microsoft.Xna.Framework;

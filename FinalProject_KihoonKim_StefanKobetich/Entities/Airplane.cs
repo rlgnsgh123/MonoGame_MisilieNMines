@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich
+namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
-    internal class MenuComponenet
+    public class Airplane
     {
-
     }
 }
