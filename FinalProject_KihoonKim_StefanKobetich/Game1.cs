@@ -9,7 +9,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
+        public GraphicsDeviceManager _graphics;
         public SpriteBatch _spriteBatch;
 
         // Decare all scenes
