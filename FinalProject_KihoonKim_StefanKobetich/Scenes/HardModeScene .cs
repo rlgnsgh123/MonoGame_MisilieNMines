@@ -1,36 +1,33 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FinalProject_KihoonKim_StefanKobetich.Entities;
-using System.Reflection.Metadata;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
-    public class PlayScene : GameScene
+    public class HardModeScene : GameScene
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        private Texture2D tex;
-        private Missile missle;
-
-        public PlayScene(Game game) : base(game)
+        public HardModeScene(Game game) : base(game)
         {
-
+            // TODO: Add your initialization logic here
         }
 
         public override void Update(GameTime gameTime)
         {
+            // TODO: Add your update logic here
+
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
+            
+
+            // TODO: Add your drawing code here
+
             base.Draw(gameTime);
         }
-
     }
 }

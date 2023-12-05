@@ -4,6 +4,7 @@ using FinalProject_KihoonKim_StefanKobetich.Shared;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Linq;
 
 namespace FinalProject_KihoonKim_StefanKobetich
 {
@@ -16,8 +17,13 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private StartScene startScene;
         private HelpScene helpScene;
         private PlayMenuScene playMenuScene;
-        private PlayScene playScene;
+        private HardModeScene hardModeScene;
+        private EasyModeScene easyModeScene;
         private HighScoreScene highScoreScene;
+        
+        private string playerName;
+        private int score;
+        private GameTime gameTime;
 
         public Game1()
         {
@@ -45,10 +51,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             Vector2 speed1 = new Vector2(2, 0);
             Rectangle srcRect = new Rectangle(0, 0, tex.Width, tex.Height);
             Vector2 pos1 = new Vector2(0, stage.Y - srcRect.Height);
-            // Vector2 pos2 = new Vector2(0, stage.Y - srcRect.Height -50);
             BackgroundParell sb1 = new BackgroundParell(this, _spriteBatch, tex, pos1, srcRect, speed1);
-            //ScrollingBackground sb2 = new ScrollingBackground(this, _spriteBatch, tex, pos2, srcRect, speed2);
-            //this.Components.Add(sb2);
             this.Components.Add(sb1);
 
 
@@ -60,22 +63,19 @@ namespace FinalProject_KihoonKim_StefanKobetich
             helpScene = new HelpScene(this);
             this.Components.Add(helpScene);
 
-            playScene = new PlayScene(this);
-            this.Components.Add(playScene);
+            playMenuScene = new PlayMenuScene(this);
+            this.Components.Add(playMenuScene);
+
+            easyModeScene = new EasyModeScene(this);
+            this.Components.Add(easyModeScene);
 
 
-            // make ONLY strart active
             startScene.show();
-            //helpScene.show();
-
-
 
         }
 
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //   Exit();
 
             // TODO: Add your update logic here
 
@@ -88,7 +88,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 if (selectedIndex == 0 && ks.IsKeyDown(Keys.Enter))
                 {
                     startScene.hide();
-                    playScene.show();
+                    playMenuScene.show();
                 }
                 else if (selectedIndex == 1 && ks.IsKeyDown(Keys.Enter))
                 {
@@ -100,11 +100,11 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     Exit();
                 }
             }
-            if (playScene.Enabled)
+            if (playMenuScene.Enabled)
             {
                 if (ks.IsKeyDown(Keys.Escape))
                 {
-                    playScene.hide();
+                    playMenuScene.hide();
                     startScene.show();
                 }
 
@@ -116,9 +116,19 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 {
                     helpScene.hide();
                     startScene.show();
-
                 }
 
+            }
+
+            if (playMenuScene.Enabled && playMenuScene.IsEasyModeSelected())
+            {
+                playMenuScene.hide();             
+                easyModeScene.show();
+            }
+            else if (playMenuScene.Enabled && playMenuScene.IsHardModeSelected())
+            {
+                playMenuScene.hide();
+                hardModeScene.show();
             }
 
 
