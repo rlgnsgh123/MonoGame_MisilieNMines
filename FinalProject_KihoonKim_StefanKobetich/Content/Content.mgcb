@@ -32,6 +32,13 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/NormalFont.spritefont
 
+#begin fonts/PlayerNameFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:fonts/PlayerNameFont.spritefont
+
 #begin fonts/SelectedFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
