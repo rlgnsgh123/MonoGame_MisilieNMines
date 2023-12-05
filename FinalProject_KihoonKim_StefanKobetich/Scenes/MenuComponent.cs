@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
+    /// <summary>
+    /// Class for the menu logic, used in the startScene class
+    /// </summary>
     public class MenuComponent : DrawableGameComponent
     {
         private SpriteBatch spriteBatch;
@@ -26,6 +29,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // 눌리는거 하나만 이동하게 하는거
         private KeyboardState preStage;
 
+        // Constructor to build the menu
         public MenuComponent(Game game, SpriteBatch sb, SpriteFont regularFont, SpriteFont hilightFont, string[] menus) : base(game)
         {
             this.spriteBatch = sb;
@@ -35,6 +39,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             position = new Vector2(SharingComponent.stage.X/7, SharingComponent.stage.Y/4);
         }
 
+        // Handles the navigation of the menu
         public override void Update(GameTime gameTime)
         {
             KeyboardState ks = Keyboard.GetState();
@@ -60,6 +65,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             base.Update(gameTime);
         }
 
+        // Draws the menu to the scene
         public override void Draw(GameTime gameTime)
         {
             Vector2 temPos = position;

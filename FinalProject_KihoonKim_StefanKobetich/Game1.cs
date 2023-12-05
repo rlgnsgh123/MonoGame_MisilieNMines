@@ -8,6 +8,9 @@ using System.Linq;
 
 namespace FinalProject_KihoonKim_StefanKobetich
 {
+    /// <summary>
+    /// Class that handles the main menu logic. Allows navigation to the other scenes
+    /// </summary>
     public class Game1 : Game
     {
         public GraphicsDeviceManager _graphics;
@@ -25,6 +28,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private int score;
         private GameTime gameTime;
 
+        // Default constructor to initialize some game comonents
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -32,6 +36,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             IsMouseVisible = true;
         }
 
+        // Initilizes the stage
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -42,6 +47,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             base.Initialize();
         }
 
+        // Loads the game menu
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -74,6 +80,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
 
         }
 
+        // Update method for when the user interacts with the menu
         protected override void Update(GameTime gameTime)
         {
 
@@ -137,6 +144,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             base.Update(gameTime);
         }
 
+        // Draws the game menu to the user
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);

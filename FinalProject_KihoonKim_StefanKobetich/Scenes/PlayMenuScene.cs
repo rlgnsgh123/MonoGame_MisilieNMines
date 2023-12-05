@@ -8,6 +8,9 @@ using System.IO;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
+    /// <summary>
+    /// Menu that is brought up after selecting to play a game
+    /// </summary>
     public class PlayMenuScene : GameScene
     {
         private bool isKeyInputHandled = false;
@@ -18,6 +21,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Button hardModeButton;
         private MouseState previousMouseState;
 
+        // Loads the selection screen for if the user wants hard mode or easy mode
         public PlayMenuScene(Game game) : base(game)
         {
             spriteBatch = new SpriteBatch(game.GraphicsDevice);
@@ -30,6 +34,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             hardModeButton = new Button(new Vector2(450, 230), "Hard Mode", Color.SkyBlue, Color.AliceBlue, spriteFont, GraphicsDevice);
         }
 
+        // Handles updating the users mouse
         public override void Update(GameTime gameTime)
         {
             HandleInput();
@@ -37,6 +42,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             base.Update(gameTime);
         }
 
+        // Draws the easy or hard menu to the user, with input for the name
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
@@ -55,6 +61,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             base.Draw(gameTime);
         }
 
+        // Handles the imput for the easy or hard menu
         private void HandleInput()
         {
 
@@ -101,8 +108,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 StartGame(PlayerInfo.GameMode);
             }
         
-    }
+        }
 
+        // After the user selects witch game version they want, this function loads it
         private void StartGame(string gameMode)
         {
             PlayerInfo.PlayerScore = 0;
@@ -128,13 +136,13 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
         }
 
-      
-
+        // Method to see if easy mode is selected
         public bool IsEasyModeSelected()
         {
             return easyModeButton.IsClicked(Mouse.GetState().Position);
         }
 
+        // Method to see if hard mode is selected
         public bool IsHardModeSelected()
         {
             return hardModeButton.IsClicked(Mouse.GetState().Position);

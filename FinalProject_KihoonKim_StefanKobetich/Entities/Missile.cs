@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
+    /// <summary>
+    /// Missile Class that allows the creation of a missle and handles all missile logic
+    /// </summary>
     public class Missile : DrawableGameComponent
     {
         private SpriteBatch sb;
@@ -28,6 +31,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private Game g;
 
+        // Constructor for missile, allows for a somewhat customizable missile
         public Missile(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, int delay) : base(game)
         {
             this.g = game;
@@ -40,6 +44,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             Hide();
         }
 
+        // Method that preps the spritelocation for the missile
         private void CreateFrames()
         {
             frames = new List<Rectangle>();
@@ -55,6 +60,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             }
         }
 
+        // Handles any of the updating and animation
         public override void Update(GameTime gameTime)
         {
             position += new Vector2(-3, 0);
@@ -78,6 +84,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             base.Update(gameTime);
         }
 
+        // Draws the missile into frame with all the class variables
         public override void Draw(GameTime gameTime)
         {
             if (frameIndex >= 0)
@@ -90,16 +97,22 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
             base.Draw(gameTime);
         }
+
+        // Hides the missile
         public void Hide()
         {
             this.Enabled = false;
             this.Visible = false;
         }
+
+        // Shows the missile
         public void Show()
         {
             this.Enabled = true;
             this.Visible = true;
         }
+
+        // Method to get the boundry / hitbox of the missile
         public Rectangle getBounds()
         {
             return new Rectangle((int)position.X, (int)position.Y, tex.Width, tex.Height);

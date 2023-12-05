@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Shared
 {
+    /// <summary>
+    /// Class to share the Vector2 stage between the classes. Only using one class and one public variable
+    /// </summary>
     public class SharingComponent
     {
         public static Vector2 stage;

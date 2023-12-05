@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
+    /// <summary>
+    /// Opening secene that contains the menu. First thing the user sees when program opens
+    /// </summary>
     public class StartScene : GameScene
     {
         private MenuComponent menu;
 
         public MenuComponent Menu { get => menu; set => menu = value; }
 
+        // Adding the menu to the start screen
         public StartScene(Game game) : base(game)
         {
             Game1 g = (Game1)game;

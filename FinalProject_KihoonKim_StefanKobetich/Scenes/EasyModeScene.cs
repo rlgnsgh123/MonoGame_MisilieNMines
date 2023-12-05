@@ -12,6 +12,9 @@ using System.Diagnostics;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
+    /// <summary>
+    /// Easy gamemode game class: The class that houses the easy version of the game
+    /// </summary>
     public class EasyModeScene : GameScene
     {
         private SpriteBatch _spriteBatch;
@@ -19,6 +22,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Missile missile;
         private Game g;
 
+        // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -31,6 +35,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
         }
 
+        // Controls what makes the game objects appear
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update logic here
@@ -57,10 +62,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             base.Update(gameTime);
         }
 
+        // Allows the game to be drawn to the user
         public override void Draw(GameTime gameTime)
         {
-            
-
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

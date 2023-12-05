@@ -10,7 +10,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
     public abstract class GameScene : DrawableGameComponent
     {
-       
+       /// <summary>
+       /// Kihoon comment this class please ****************************************************************************************
+       /// </summary>
         public List<GameComponent> Components { get; set; }
         public virtual void hide()
         {
@@ -42,7 +44,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
             base.Update(gameTime);
         }
-
 
         public override void Draw(GameTime gameTime)
         {
