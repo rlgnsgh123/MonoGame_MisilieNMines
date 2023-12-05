@@ -4,14 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/../../../../../Users/rlgns/Downloads/background.png</File>
-    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/NormalFont.spritefont</File>
-    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/PlayerNameFont.spritefont</File>
-    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/SelectedFont.spritefont</File>
-    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/missle.png</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/NormalFont.spritefont</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/PlayerNameFont.spritefont</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/SelectedFont.spritefont</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/MissileFire.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>images/background.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

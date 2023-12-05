@@ -21,7 +21,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private int delayCounter;
 
-        private const int ROWS = 6;
+        private const int ROWS = 3;
         private const int COLS = 1;
 
         public Vector2 Position { get => position; set => position = value; }
@@ -57,14 +57,15 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         public override void Update(GameTime gameTime)
         {
+            position += new Vector2(-3, 0);
+
             delayCounter++;
             if (delayCounter > delay)
             {
                 frameIndex++;
-
-                if (frameIndex > ROWS * COLS - 2)
+                if (frameIndex == ROWS * COLS)
                 {
-                    frameIndex--;
+                    frameIndex = 1;
                 }
                 if (frameIndex > ROWS * COLS - 1)
                 {
@@ -98,6 +99,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         {
             this.Enabled = true;
             this.Visible = true;
+        }
+        public Rectangle getBounds()
+        {
+            return new Rectangle((int)position.X, (int)position.Y, tex.Width, tex.Height);
         }
     }
 }

@@ -46,7 +46,7 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/SelectedFont.spritefont
 
-#begin images/missle.png
+#begin images/MissileFire.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -56,5 +56,5 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:images/missle.png
+/build:images/MissileFire.png
 
