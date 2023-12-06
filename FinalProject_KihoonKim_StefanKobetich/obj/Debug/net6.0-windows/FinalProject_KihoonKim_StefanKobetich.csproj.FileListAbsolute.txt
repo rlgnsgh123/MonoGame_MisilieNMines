@@ -82,3 +82,5 @@ C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProje
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\fonts\PlayerNameFont.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\fonts\PlayerNameFont.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\MissileFire.xnb
+C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\mineBombGround.xnb
+C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\floatingMineBomb.xnb

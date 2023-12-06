@@ -12,7 +12,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         public static int PlayerScore { get; set; }
         public static string GameMode { get; set; }
 
-        // 다른 초기화 로직이나 메서드가 필요한 경우 추가할 수 있습니다.
+        // 다른 초기화 로직이나 메서드가 필요한 경우 추가할 수 있습니다. (If you need other initialization logic or methods, you can add them.)
 
         static PlayerInfo()
         {

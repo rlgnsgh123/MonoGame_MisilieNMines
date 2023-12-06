@@ -18,8 +18,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     public class EasyModeScene : GameScene
     {
         private SpriteBatch _spriteBatch;
-        private Texture2D tex;
+        private Texture2D missileTex;
+        private Texture2D bombTex;
         private Missile missile;
+        private MineBomb mineBomb;
         private Game g;
 
         // Constructor to load the game materials
@@ -27,10 +29,16 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            tex = game.Content.Load<Texture2D>("images/MissileFire");
-            missile = new Missile(game, _spriteBatch, tex, Vector2.Zero, 5);
+            // Addition of missile
+            missileTex = game.Content.Load<Texture2D>("images/MissileFire");
+            missile = new Missile(game, _spriteBatch, missileTex, Vector2.Zero, 5);
             this.Components.Add(missile);
+
+            // Addition of MineBomb
+            bombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
+            mineBomb = new MineBomb(game, _spriteBatch, bombTex, Vector2.Zero, 10);
+            this.Components.Add(mineBomb);
+
             g = game;
 
         }
@@ -49,12 +57,14 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             if (ms.LeftButton == ButtonState.Pressed)
             {
                 Vector2 pos = new Vector2(ms.X - 32, ms.Y - 32);
-                //explosion.Position = pos;
-                //explosion.Show();
 
-                Missile missile = new Missile(g, _spriteBatch, tex, pos, 8);
+                Missile missile = new Missile(g, _spriteBatch, missileTex, pos, 8);
                 missile.Show();
                 this.Components.Add(missile);
+
+                MineBomb mineBomb = new MineBomb(g, _spriteBatch, bombTex, pos, 5);
+                mineBomb.Show();
+                this.Components.Add(mineBomb);
 
                 Debug.Print(this.Components.Count.ToString());
             }

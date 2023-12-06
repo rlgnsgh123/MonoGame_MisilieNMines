@@ -7,9 +7,13 @@
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/NormalFont.spritefont</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/PlayerNameFont.spritefont</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/SelectedFont.spritefont</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/floatingMineBomb.png</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/mineBombGround.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/MissileFire.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

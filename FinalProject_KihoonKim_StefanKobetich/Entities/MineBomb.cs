@@ -4,10 +4,7 @@ using System.Collections.Generic;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
-    /// <summary>
-    /// Missile Class that allows the creation of a missle and handles all missile logic
-    /// </summary>
-    public class Missile : DrawableGameComponent
+    public class MineBomb : DrawableGameComponent
     {
         private SpriteBatch sb;
         private Texture2D tex;
@@ -20,15 +17,13 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private int delayCounter;
 
-        private const int ROWS = 3;
+        private const int ROWS = 4;
         private const int COLS = 1;
-
         public Vector2 Position { get => position; set => position = value; }
-
         private Game g;
 
-        // Constructor for missile, allows for a somewhat customizable missile
-        public Missile(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, int delay) : base(game)
+        // Constructor for the MineBomb, allows for a somewhat customizable MineBomb
+        public MineBomb(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, int delay) : base(game)
         {
             this.g = game;
             this.sb = sb;
@@ -39,6 +34,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             CreateFrames();
             Hide();
         }
+
 
         // Method that preps the spritelocation for the missile
         private void CreateFrames()
@@ -64,22 +60,13 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             delayCounter++;
             if (delayCounter > delay)
             {
-                frameIndex++;
-                if (frameIndex == ROWS * COLS)
-                {
-                    frameIndex = 1;
-                }
+
                 if (frameIndex > ROWS * COLS - 1)
                 {
                     frameIndex = -1;
                 }
 
                 delayCounter = 0;
-            }
-
-            if (position.X <= -100)
-            {
-                Hide();
             }
 
             base.Update(gameTime);
@@ -93,7 +80,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
                 sb.Begin();
                 sb.Draw(tex, Position, frames[frameIndex], Color.White);
                 sb.End();
-
             }
 
             base.Draw(gameTime);
