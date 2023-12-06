@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
@@ -72,12 +73,15 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             Random r = new Random();
 
             int airMinePos = 800;
-            int mineCount = 10;
+            int groundMinePos = 700;
+            int airMineCount = 10;
+            int groundMineCount = 10;
 
-            for (int i = 0; i < mineCount; i++)
+
+            for (int i = 0; i < airMineCount; i++)
             {
-                int randomPosAway = r.Next(200, 350);
-                int randomPosHigh = r.Next(2, 300);
+                int randomPosAway = RandomNumberGenerator.GetInt32(200, 350);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(2, 250);
 
                 airMinePos = airMinePos + randomPosAway;
                 // Addition of MineBomb air
@@ -87,19 +91,19 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 mineBomb.Show();
             }
 
+            for (int i = 0; i < groundMineCount; i++)
+            {
+                int randomPosAway = RandomNumberGenerator.GetInt32(250, 400);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(210, 375);
 
+                groundMinePos = groundMinePos + randomPosAway;
+                // Addition of MineBomb ground
+                groundBombTex = game.Content.Load<Texture2D>("images/mineBombGroundHigh");
+                mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(groundMinePos, randomPosHigh), 10);
+                this.Components.Add(mineBomb);
+                mineBomb.Show();
+            }
 
-            // Addition of MineBomb ground
-            groundBombTex = game.Content.Load<Texture2D>("images/mineBombGroundHigh");
-            mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(800, 325), 10);
-            this.Components.Add(mineBomb);
-            mineBomb.Show();
-            mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(1100, 260), 10);
-            this.Components.Add(mineBomb);
-            mineBomb.Show();
-            mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(1400, 210), 10);
-            this.Components.Add(mineBomb);
-            mineBomb.Show();
 
 
 
