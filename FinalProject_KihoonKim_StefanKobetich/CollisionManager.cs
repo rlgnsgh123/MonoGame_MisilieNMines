@@ -1,4 +1,5 @@
 ﻿using FinalProject_KihoonKim_StefanKobetich.Entities;
+using FinalProject_KihoonKim_StefanKobetich.Scenes;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -11,27 +12,30 @@ namespace FinalProject_KihoonKim_StefanKobetich
 {
     public class CollisionManager : GameComponent
     {
+        private EasyModeScene easyModeScene {  get; set; }
         private Missile missile;
         private Airplane airplane;
         private MineBomb mineBomb;
-        public CollisionManager(Game game, Missile missile, MineBomb mineBomb) : base(game)
+        public CollisionManager(Game game, Missile missile, MineBomb mineBomb, Airplane airplane) : base(game)
         {
+            this.airplane = airplane;
             this.mineBomb = mineBomb;
             this.missile = missile;
-            //this.airplane = airplane;   
         }
 
         public override void Update(GameTime gameTime)
         {
             Rectangle missileRect = missile.getBounds();
-            //Rectangle airplaneRect = airplane.getBounds();
+            Rectangle airplaneRect = airplane.getBounds();
             Rectangle bombRect = mineBomb.getBounds();
 
-            if (missileRect.Intersects(bombRect))
+
+
+            if (airplaneRect.Intersects(missileRect))
             {
                 // Put code for what happens on an inersection here
-                mineBomb.Enabled = false;
-                mineBomb.Visible = false;
+                airplane.Visible = false;
+                airplane.Enabled = false;
             }
 
             base.Update(gameTime);
