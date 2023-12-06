@@ -84,3 +84,5 @@ C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_Stef
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\MissileFire.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\floatingMineBomb.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\mineBombGroundHigh.xnb
+C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\AirPlane.xnb
+C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\AirPlane1.xnb

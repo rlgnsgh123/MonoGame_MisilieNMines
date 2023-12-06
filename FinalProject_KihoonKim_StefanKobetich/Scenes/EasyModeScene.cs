@@ -36,17 +36,25 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             missile = new Missile(game, _spriteBatch, missileTex, Vector2.Zero, 5);
             this.Components.Add(missile);
 
-            // Addition of MineBomb air
-            airBombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
-            mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(800, 100), 10);
-            this.Components.Add(mineBomb);
-            mineBomb.Show();
-            mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(1000, 200), 10);
-            this.Components.Add(mineBomb);
-            mineBomb.Show();
-            mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(1150, 50), 10);
-            this.Components.Add(mineBomb);
-            mineBomb.Show();
+            Random r = new Random();
+
+            int airMinePos = 800;
+            int mineCount = 10;
+
+            for (int i = 0; i < mineCount; i++)
+            {
+                int randomPosAway = r.Next(200, 350);
+                int randomPosHigh = r.Next(2, 300);
+
+                airMinePos = airMinePos + randomPosAway;
+                // Addition of MineBomb air
+                airBombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
+                mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(airMinePos, randomPosHigh), 10);
+                this.Components.Add(mineBomb);
+                mineBomb.Show();
+            }
+
+
 
             // Addition of MineBomb ground
             groundBombTex = game.Content.Load<Texture2D>("images/mineBombGroundHigh");
