@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 using System.Security.Cryptography;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
@@ -31,6 +32,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Texture2D airplaneTex1;
         private Game g;
 
+
+        private int score = 0;
         private List<AirplaneSprite> _airplaneSprites;
 
         // Constructor to load the game materials
@@ -119,6 +122,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Controls what makes the game objects appear
         public override void Update(GameTime gameTime)
         {
+            score += (int)gameTime.ElapsedGameTime.TotalSeconds;
             // TODO: Add your update logic here
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
@@ -133,7 +137,14 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Allows the game to be drawn to the user
         public override void Draw(GameTime gameTime)
         {
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+
+            // Draw the score
+            string scoreText = $"Score: {score}";
+            Vector2 scorePosition = new Vector2(10, 10);
+            _spriteBatch.DrawString(g.Content.Load<SpriteFont>("fonts/NormalFont"), scoreText, scorePosition, Color.White);
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
