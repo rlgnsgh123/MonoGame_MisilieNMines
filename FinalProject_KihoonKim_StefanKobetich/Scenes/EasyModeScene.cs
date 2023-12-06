@@ -19,7 +19,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     {
         private SpriteBatch _spriteBatch;
         private Texture2D missileTex;
-        private Texture2D bombTex;
+        private Texture2D groundBombTex;
+        private Texture2D airBombTex;
         private Missile missile;
         private MineBomb mineBomb;
         private Game g;
@@ -28,19 +29,40 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         public EasyModeScene(Game game) : base(game)
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            g = game;
 
             // Addition of missile
             missileTex = game.Content.Load<Texture2D>("images/MissileFire");
             missile = new Missile(game, _spriteBatch, missileTex, Vector2.Zero, 5);
             this.Components.Add(missile);
 
-            // Addition of MineBomb
-            bombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
-            mineBomb = new MineBomb(game, _spriteBatch, bombTex, Vector2.Zero, 10);
+            // Addition of MineBomb air
+            airBombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
+            mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(800, 100), 10);
             this.Components.Add(mineBomb);
+            mineBomb.Show();
+            mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(1000, 200), 10);
+            this.Components.Add(mineBomb);
+            mineBomb.Show();
+            mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(1150, 50), 10);
+            this.Components.Add(mineBomb);
+            mineBomb.Show();
 
-            g = game;
+            // Addition of MineBomb ground
+            groundBombTex = game.Content.Load<Texture2D>("images/mineBombGroundHigh");
+            mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(800, 325), 10);
+            this.Components.Add(mineBomb);
+            mineBomb.Show();
+            mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(1100, 260), 10);
+            this.Components.Add(mineBomb);
+            mineBomb.Show();
+            mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(1400, 210), 10);
+            this.Components.Add(mineBomb);
+            mineBomb.Show();
 
+
+            CollisionManager cm = new CollisionManager(g, missile, mineBomb);
+            this.Components.Add(cm);
         }
 
         // Controls what makes the game objects appear
@@ -61,10 +83,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 Missile missile = new Missile(g, _spriteBatch, missileTex, pos, 8);
                 missile.Show();
                 this.Components.Add(missile);
-
-                MineBomb mineBomb = new MineBomb(g, _spriteBatch, bombTex, pos, 5);
-                mineBomb.Show();
-                this.Components.Add(mineBomb);
 
                 Debug.Print(this.Components.Count.ToString());
             }

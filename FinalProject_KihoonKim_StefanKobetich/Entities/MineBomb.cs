@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
+    /// <summary>
+    /// MineBomb Class that allows the creation of a missle and handles all missile logic
+    /// </summary>
     public class MineBomb : DrawableGameComponent
     {
         private SpriteBatch sb;
@@ -19,10 +22,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private const int ROWS = 4;
         private const int COLS = 1;
+
         public Vector2 Position { get => position; set => position = value; }
+
         private Game g;
 
-        // Constructor for the MineBomb, allows for a somewhat customizable MineBomb
+        // Constructor for MineBomb, allows for a somewhat customizable MineBomb
         public MineBomb(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, int delay) : base(game)
         {
             this.g = game;
@@ -35,8 +40,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             Hide();
         }
 
-
-        // Method that preps the spritelocation for the missile
+        // Method that preps the spritelocation for the MineBomb
         private void CreateFrames()
         {
             frames = new List<Rectangle>();
@@ -55,18 +59,27 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         // Handles any of the updating and animation
         public override void Update(GameTime gameTime)
         {
-            position += new Vector2(-3, 0);
+            position += new Vector2(-2, 0);
 
             delayCounter++;
             if (delayCounter > delay)
             {
-
+                frameIndex++;
+                if (frameIndex == ROWS * COLS)
+                {
+                    frameIndex = 1;
+                }
                 if (frameIndex > ROWS * COLS - 1)
                 {
                     frameIndex = -1;
                 }
 
                 delayCounter = 0;
+            }
+
+            if (position.X <= -100)
+            {
+                Hide();
             }
 
             base.Update(gameTime);
@@ -85,21 +98,21 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             base.Draw(gameTime);
         }
 
-        // Hides the missile
+        // Hides the MineBomb
         public void Hide()
         {
             this.Enabled = false;
             this.Visible = false;
         }
 
-        // Shows the missile
+        // Shows the MineBomb
         public void Show()
         {
             this.Enabled = true;
             this.Visible = true;
         }
 
-        // Method to get the boundry / hitbox of the missile
+        // Method to get the boundry / hitbox of the MineBomb
         public Rectangle getBounds()
         {
             return new Rectangle((int)position.X, (int)position.Y, tex.Width, tex.Height);
