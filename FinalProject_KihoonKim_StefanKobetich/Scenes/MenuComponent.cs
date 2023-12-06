@@ -25,18 +25,35 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Vector2 position;
         private Color normalColor = Color.WhiteSmoke;
         private Color selectedColor = Color.DarkRed;
+
+        private string type;
         
         // 눌리는거 하나만 이동하게 하는거
         private KeyboardState preStage;
 
         // Constructor to build the menu
-        public MenuComponent(Game game, SpriteBatch sb, SpriteFont regularFont, SpriteFont hilightFont, string[] menus) : base(game)
+        public MenuComponent(Game game, SpriteBatch sb, SpriteFont regularFont, SpriteFont hilightFont, string[] menus, string type) : base(game)
         {
-            this.spriteBatch = sb;
-            this.normalFont = regularFont;
-            this.selectedFont = hilightFont;
-            menuLists = menus.ToList();
-            position = new Vector2(SharingComponent.stage.X/7, SharingComponent.stage.Y/4);
+            if (type == "Start")
+            {
+                this.spriteBatch = sb;
+                this.normalFont = regularFont;
+                this.selectedFont = hilightFont;
+                menuLists = menus.ToList();
+                position = new Vector2(SharingComponent.stage.X / 7, SharingComponent.stage.Y / 4);
+                this.type = "Start";
+            }
+            else if (type == "PlayMenu")
+            {
+                this.spriteBatch = sb;
+                this.normalFont = regularFont;
+                this.selectedFont = hilightFont;
+                menuLists = menus.ToList();
+                position = new Vector2(SharingComponent.stage.X / 4, SharingComponent.stage.Y / 2);
+                this.type = "PlayMenu";
+            }
+           
+            
         }
 
         // Handles the navigation of the menu
@@ -61,6 +78,25 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 }
 
             }
+            if (ks.IsKeyDown(Keys.Left) && preStage.IsKeyUp(Keys.Left))
+            {
+                SelectedIndex++;
+                if (SelectedIndex == menuLists.Count)
+                {
+                    SelectedIndex = 0;
+                }
+            }
+
+            if (ks.IsKeyDown(Keys.Right) && preStage.IsKeyUp(Keys.Right))
+            {
+                SelectedIndex--;
+                if (SelectedIndex == -1)
+                {
+                    SelectedIndex = menuLists.Count - 1;
+                }
+
+            }
+
             preStage = ks;
             base.Update(gameTime);
         }
@@ -72,16 +108,37 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             spriteBatch.Begin();
             for (int i = 0; i < menuLists.Count; i++)
             {
-                if (SelectedIndex == i)
+                if (type == "Start")
                 {
-                    spriteBatch.DrawString(selectedFont, menuLists[i], temPos, selectedColor);
-                    temPos.Y += selectedFont.LineSpacing;
+                    if (SelectedIndex == i)
+                    {
+                        spriteBatch.DrawString(selectedFont, menuLists[i], temPos, selectedColor);
+                        temPos.Y += selectedFont.LineSpacing;
+                    }
+                    else
+                    {
+                        spriteBatch.DrawString(normalFont, menuLists[i], temPos, normalColor);
+                        temPos.Y += normalFont.LineSpacing;
+                    }
+
                 }
-                else 
+                else if (type == "PlayMenu")
                 {
-                    spriteBatch.DrawString(normalFont, menuLists[i], temPos, normalColor);
-                    temPos.Y += normalFont.LineSpacing;
+                    if (SelectedIndex == i)
+                    {
+                        Vector2 pos = new Vector2(100,100);
+                        spriteBatch.DrawString(selectedFont, menuLists[i], temPos, selectedColor);
+                        temPos.X += 300;
+                    }
+                    else
+                    {
+                        Vector2 pos = new Vector2(300, 100);
+                        spriteBatch.DrawString(normalFont, menuLists[i], temPos, normalColor);
+                        temPos.X += 300;
+                    }
+
                 }
+               
                 
             }
             spriteBatch.End();

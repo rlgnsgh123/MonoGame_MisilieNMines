@@ -44,7 +44,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             this.ySpeed = ySpeed;
             this.stage = stage;
             this.delay = delay;
-            this.dimension = new Vector2(tex.Width / COLS, tex.Height / ROWS);
+
+            this.dimension = new Vector2(tex.Width / COLS, tex.Height);
 
             CreateFrames();
         }
@@ -135,21 +136,17 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
             if (frameIndex >= 0)
             {
-
+                
                 sb.Begin();
-
-                float scaleX = 50f / frames[frameIndex].Width; 
-                float scaleY = 50f / frames[frameIndex].Height; 
-
-                sb.Draw(tex, position, frames[frameIndex], Color.White, 0f, Vector2.Zero, new Vector2(scaleX, scaleY), SpriteEffects.None, 0f);
+                // version 4
+                sb.Draw(tex, position, frames[frameIndex], Color.White);
                 sb.End();
             }
             base.Draw(gameTime);
         }
         public Rectangle getBounds()
         {
-            a
-            return new Rectangle((int)position.X, (int)position.Y, tex.Width, tex.Height);
+            return new Rectangle((int)position.X, (int)position.Y, (int)dimension.X, (int)dimension.Y);
         }
     }
 }
