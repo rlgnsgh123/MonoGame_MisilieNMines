@@ -135,16 +135,20 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
             if (frameIndex >= 0)
             {
-                
+
                 sb.Begin();
-                // version 4
-                sb.Draw(tex, position, frames[frameIndex], Color.White);
+
+                float scaleX = 50f / frames[frameIndex].Width; 
+                float scaleY = 50f / frames[frameIndex].Height; 
+
+                sb.Draw(tex, position, frames[frameIndex], Color.White, 0f, Vector2.Zero, new Vector2(scaleX, scaleY), SpriteEffects.None, 0f);
                 sb.End();
             }
             base.Draw(gameTime);
         }
         public Rectangle getBounds()
         {
+            a
             return new Rectangle((int)position.X, (int)position.Y, tex.Width, tex.Height);
         }
     }

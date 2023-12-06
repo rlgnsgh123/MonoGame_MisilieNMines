@@ -25,7 +25,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private HighScoreScene highScoreScene;
         
         private string playerName;
-        private int score;
         private GameTime gameTime;
 
         // Default constructor to initialize some game comonents

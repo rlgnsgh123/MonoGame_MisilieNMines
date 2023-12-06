@@ -32,15 +32,16 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Texture2D airplaneTex1;
         private Game g;
 
-
         private int score = 0;
+
         private List<AirplaneSprite> _airplaneSprites;
+
 
         // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            g = game;
+            
 
             KeyboardState ks = Keyboard.GetState();
 
@@ -94,6 +95,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 missile = new Missile(game, _spriteBatch, missileTex, new Vector2(missilePos, randomPosHigh), 5, randomSpeed);
                 this.Components.Add(missile);
                 missile.Show();
+                g = game;
             }
 
             // Addition of MineBomb air
@@ -132,6 +134,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         public override void Update(GameTime gameTime)
         {
             score += (int)gameTime.ElapsedGameTime.TotalSeconds;
+            Debug.WriteLine($"Elapsed Time: {gameTime.ElapsedGameTime.TotalSeconds}, Score: {score}");
             // TODO: Add your update logic here
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
