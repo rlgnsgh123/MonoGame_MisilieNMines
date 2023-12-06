@@ -1,10 +1,13 @@
 ﻿
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using FinalProject_KihoonKim_StefanKobetich.Entities;
+using FinalProject_KihoonKim_StefanKobetich.Shared;
+using FinalProject_KihoonKim_StefanKobetich.Sprites;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
@@ -14,19 +17,52 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     /// </summary>
     public class EasyModeScene : GameScene
     {
+        private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Texture2D missileTex;
         private Texture2D groundBombTex;
         private Texture2D airBombTex;
         private Missile missile;
         private MineBomb mineBomb;
+        private Airplane airplane;
+        private Texture2D bombTex;
+        private Texture2D airplaneTex;
+        private Texture2D airplaneTex1;
         private Game g;
+
+        private List<AirplaneSprite> _airplaneSprites;
 
         // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             g = game;
+
+            KeyboardState ks = Keyboard.GetState();
+
+            Vector2 stage = new Vector2(SharingComponent.stage.X,
+                SharingComponent.stage.Y);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // Addition of airplane
+            //Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
+            Texture2D airplaneTex = game.Content.Load<Texture2D>("images/Airplane");
+            Vector2 airplaneInitPos = new Vector2(70, 200);
+            Vector2 airplaneXSpeed = new Vector2(5, 0);
+            Vector2 airplaneYSpeed = new Vector2(0, 5);
+
+            //airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage);
+            //this.Components.Add(airplane);
+            airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage, 3);
+            this.Components.Add(airplane);
+
+            if (ks.IsKeyDown(Keys.Up))
+            {
+                Vector2 pos = airplane.Position;
+
+                this.Components.Add(airplane);
+            }
+
 
             // Addition of missile
             missileTex = game.Content.Load<Texture2D>("images/MissileFire");
@@ -64,6 +100,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(1400, 210), 10);
             this.Components.Add(mineBomb);
             mineBomb.Show();
+
+
 
 
             CollisionManager cm = new CollisionManager(g, missile, mineBomb);
