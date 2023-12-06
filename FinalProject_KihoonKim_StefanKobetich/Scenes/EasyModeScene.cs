@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Security.Cryptography;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
@@ -70,7 +71,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             int airMineCount = 20;
             int groundMineCount = 20;
             int missileCount = 20;
-            int missileSpeed = -3;
 
             // Addition of Missile
             for (int i = 0; i < missileCount; i++)
@@ -119,9 +119,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 mineBomb.Show();
             }
 
+            List<Missile> missileList = this.Components.OfType<Missile>().ToList();
+            List<MineBomb> mineBombList = this.Components.OfType<MineBomb>().ToList();
 
-
-            CollisionManager cm = new CollisionManager(g, missile, mineBomb, airplane);
+            CollisionManager cm = new CollisionManager(g, missileList, mineBombList, mineBomb, airplane);
             this.Components.Add(cm);
         }
 

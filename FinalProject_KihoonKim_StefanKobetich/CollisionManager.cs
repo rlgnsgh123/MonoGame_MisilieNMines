@@ -13,30 +13,47 @@ namespace FinalProject_KihoonKim_StefanKobetich
     public class CollisionManager : GameComponent
     {
         private EasyModeScene easyModeScene {  get; set; }
-        private Missile missile;
+        private List<Missile> missileList;
+        private List<MineBomb> mineBombList;
         private Airplane airplane;
         private MineBomb mineBomb;
-        public CollisionManager(Game game, Missile missile, MineBomb mineBomb, Airplane airplane) : base(game)
+        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, MineBomb mineBomb, Airplane airplane) : base(game)
         {
             this.airplane = airplane;
             this.mineBomb = mineBomb;
-            this.missile = missile;
+            this.missileList = missileList;
+            this.mineBombList = mineBombList;
         }
 
         public override void Update(GameTime gameTime)
         {
-            Rectangle missileRect = missile.getBounds();
+            Rectangle missileRect = new Rectangle();
+            Rectangle bombRect = new Rectangle();
             Rectangle airplaneRect = airplane.getBounds();
-            Rectangle bombRect = mineBomb.getBounds();
 
-
-
-            if (airplaneRect.Intersects(missileRect))
+            foreach (Missile m in missileList)
             {
-                // Put code for what happens on an inersection here
-                airplane.Visible = false;
-                airplane.Enabled = false;
+                missileRect = m.getBounds();
+                if (airplaneRect.Intersects(missileRect))
+                {
+                    // Put code for what happens on an inersection here
+                    airplane.Visible = false;
+                    airplane.Enabled = false;
+                }
             }
+            foreach (MineBomb b in mineBombList)
+            {
+                bombRect = b.getBounds();
+                if (airplaneRect.Intersects(bombRect))
+                {
+                    // Put code for what happens on an inersection here
+                    airplane.Visible = false;
+                    airplane.Enabled = false;
+                }
+            }
+
+
+
 
             base.Update(gameTime);
         }
