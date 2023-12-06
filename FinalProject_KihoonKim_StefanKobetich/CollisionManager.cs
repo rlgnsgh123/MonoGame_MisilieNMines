@@ -12,17 +12,22 @@ namespace FinalProject_KihoonKim_StefanKobetich
 {
     public class CollisionManager : GameComponent
     {
-        private EasyModeScene easyModeScene {  get; set; }
+        private Game game;
+        private EasyModeScene easyModeScene { get; set; }
         private List<Missile> missileList;
         private List<MineBomb> mineBombList;
         private Airplane airplane;
         private MineBomb mineBomb;
-        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, MineBomb mineBomb, Airplane airplane) : base(game)
+        private GameScene gameScene;
+
+        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, MineBomb mineBomb, Airplane airplane, GameScene gameScene) : base(game)
         {
+            this.game = game;
             this.airplane = airplane;
             this.mineBomb = mineBomb;
             this.missileList = missileList;
             this.mineBombList = mineBombList;
+            this.gameScene = gameScene;
         }
 
         public override void Update(GameTime gameTime)
@@ -39,6 +44,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     // Put code for what happens on an inersection here
                     airplane.Visible = false;
                     airplane.Enabled = false;
+                    HandleCollision();
+                    break;
                 }
             }
             foreach (MineBomb b in mineBombList)
@@ -49,6 +56,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     // Put code for what happens on an inersection here
                     airplane.Visible = false;
                     airplane.Enabled = false;
+                    HandleCollision();
+                    break;
                 }
             }
 
@@ -57,7 +66,23 @@ namespace FinalProject_KihoonKim_StefanKobetich
 
             base.Update(gameTime);
         }
+        private void HandleCollision()
+        {
+            // 게임 모드에 따른 처리를 수행합니다.
+            if (gameScene is EasyModeScene)
+            {
+                EasyModeScene easyModeScene = (EasyModeScene)gameScene;
+                easyModeScene.EndGame();
+            }
+            else if (gameScene is HardModeScene)
+            {
+                HardModeScene hardModeScene = (HardModeScene)gameScene;
+                // Hard Mode에서의 처리 추가
+                // 예: hardModeScene.EndGame();
+            }
 
 
+
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             SpriteFont normalFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             SpriteFont selectedFont = game.Content.Load<SpriteFont>("fonts/SelectedFont");
             string[] menuItems = { "Start Game", "Help", "High Score", "Credit", "Quit" };
-            Menu = new MenuComponent(g, g._spriteBatch, normalFont, selectedFont, menuItems);
+            Menu = new MenuComponent(g, g._spriteBatch, normalFont, selectedFont, menuItems, "Start");
             this.Components.Add(Menu);
         }
     }

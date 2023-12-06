@@ -20,12 +20,9 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private StartScene startScene;
         private HelpScene helpScene;
         private PlayMenuScene playMenuScene;
-        private HardModeScene hardModeScene;
-        private EasyModeScene easyModeScene;
         private HighScoreScene highScoreScene;
         
         private string playerName;
-        private int score;
         private GameTime gameTime;
 
         // Default constructor to initialize some game comonents
@@ -72,9 +69,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
             playMenuScene = new PlayMenuScene(this);
             this.Components.Add(playMenuScene);
 
-            easyModeScene = new EasyModeScene(this);
-            this.Components.Add(easyModeScene);
-
 
             startScene.show();
 
@@ -96,11 +90,13 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 {
                     startScene.hide();
                     playMenuScene.show();
+                    
                 }
                 else if (selectedIndex == 1 && ks.IsKeyDown(Keys.Enter))
                 {
                     startScene.hide();
                     helpScene.show();
+
                 }
                 else if (selectedIndex == 4 && ks.IsKeyDown(Keys.Enter))
                 {
@@ -126,19 +122,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 }
 
             }
-
-            if (playMenuScene.Enabled && playMenuScene.IsEasyModeSelected())
-            {
-                playMenuScene.hide();             
-                easyModeScene.show();
-            }
-            else if (playMenuScene.Enabled && playMenuScene.IsHardModeSelected())
-            {
-                playMenuScene.hide();
-                hardModeScene.show();
-            }
-
-
             // same way other scenes
 
             base.Update(gameTime);

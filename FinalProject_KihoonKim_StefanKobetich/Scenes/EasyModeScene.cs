@@ -1,6 +1,4 @@
-﻿
-
-using FinalProject_KihoonKim_StefanKobetich.Entities;
+﻿using FinalProject_KihoonKim_StefanKobetich.Entities;
 using FinalProject_KihoonKim_StefanKobetich.Shared;
 using FinalProject_KihoonKim_StefanKobetich.Sprites;
 using Microsoft.Xna.Framework;
@@ -32,11 +30,25 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Texture2D airplaneTex1;
         private Game g;
 
+        private SpriteFont spriteFont;
+
+        private int score = 0;
+        private float scoreUpdateInterval = 0.05f;
+        private float scoreTimer = 0.0f;
+        public bool isGameDone = false;
+
+        private EndScene endScene;
+
+        private CollisionManager _collisionManager;
         private List<AirplaneSprite> _airplaneSprites;
 
         // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
         {
+            endScene = new EndScene(game, score);
+            this.Components.Add(endScene);
+            endScene.hide();
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             g = game;
 
@@ -45,25 +57,21 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             Vector2 stage = new Vector2(SharingComponent.stage.X,
                 SharingComponent.stage.Y);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
+           
             // Addition of airplane
             //Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
             Texture2D airplaneTex = game.Content.Load<Texture2D>("images/Airplane");
             Vector2 airplaneInitPos = new Vector2(70, 200);
-            Vector2 airplaneXSpeed = new Vector2(5, 0);
-            Vector2 airplaneYSpeed = new Vector2(0, 5);
+            Vector2 airplaneXSpeed = new Vector2(6, 0);
+            Vector2 airplaneYSpeed = new Vector2(0, 6);
 
             //airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage);
             //this.Components.Add(airplane);
             airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage, 3);
             this.Components.Add(airplane);
 
-            if (ks.IsKeyDown(Keys.Up))
-            {
-                Vector2 pos = airplane.Position;
-
-                this.Components.Add(airplane);
-            }
+          
 
             int airMinePos = 800;
             int groundMinePos = 700;
@@ -122,17 +130,24 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             List<Missile> missileList = this.Components.OfType<Missile>().ToList();
             List<MineBomb> mineBombList = this.Components.OfType<MineBomb>().ToList();
 
-            CollisionManager cm = new CollisionManager(g, missileList, mineBombList, mineBomb, airplane);
-            this.Components.Add(cm);
+            _collisionManager = new CollisionManager(g, missileList, mineBombList, mineBomb, airplane, this); // 수정된 부분
+            this.Components.Add(_collisionManager);
         }
 
         // Controls what makes the game objects appear
         public override void Update(GameTime gameTime)
         {
+            float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            UpdateScore(elapsedSeconds);
             // TODO: Add your update logic here
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 g.Exit();
+            }
+            if (isGameDone)
+            {
+                EndGame();
+                return;
             }
 
 
@@ -140,11 +155,44 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             base.Update(gameTime);
         }
 
+        private void UpdateScore(float elapsedSeconds)
+        {
+            scoreTimer += elapsedSeconds;
+
+            if (scoreTimer >= scoreUpdateInterval)
+            {
+                // 경과 시간 누적
+                score += 1;
+
+                // initialize scoreTimertimer
+                scoreTimer = 0.0f;
+
+            }
+        }
+
+        private void DrawScore()
+        {
+            spriteFont = g.Content.Load<SpriteFont>("fonts/NormalFont");
+            _spriteBatch.Begin();
+            _spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(10, 10), Color.White);
+            _spriteBatch.End();
+        }
+
+        public void EndGame()
+        {
+            isGameDone = true;
+            // 게임이 종료되면 EndScene을 보여줄 수 있습니다.
+            EndScene endScene = new EndScene(g, score);
+            Game.Components.Add(endScene);
+            endScene.show();
+            this.hide();
+        }
+
         // Allows the game to be drawn to the user
         public override void Draw(GameTime gameTime)
         {
             // TODO: Add your drawing code here
-
+            DrawScore();
             base.Draw(gameTime);
         }
     }

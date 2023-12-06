@@ -115,7 +115,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         // Method to get the boundry / hitbox of the MineBomb
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X, (int)position.Y, tex.Width, tex.Height);
+            return new Rectangle((int)position.X, (int)position.Y, (int)dimension.X, (int)dimension.Y);
         }
     }
 }

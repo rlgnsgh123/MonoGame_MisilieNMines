@@ -44,7 +44,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             this.ySpeed = ySpeed;
             this.stage = stage;
             this.delay = delay;
-            this.dimension = new Vector2(tex.Width / COLS, tex.Height / ROWS);
+
+            this.dimension = new Vector2(tex.Width / COLS, tex.Height);
 
             CreateFrames();
         }
@@ -145,7 +146,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         }
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X, (int)position.Y, tex.Width, tex.Height);
+            return new Rectangle((int)position.X, (int)position.Y, (int)dimension.X, (int)dimension.Y);
         }
     }
 }
