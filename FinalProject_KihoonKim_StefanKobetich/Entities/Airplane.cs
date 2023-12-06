@@ -45,6 +45,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             this.stage = stage;
             this.delay = delay;
             this.dimension = new Vector2(tex.Width / COLS, tex.Height / ROWS);
+
             CreateFrames();
         }
 
@@ -89,25 +90,17 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
                 {
                     position.X = 0;
                 }
-                if (position.X > stage.X - tex.Width)
+                if (position.X > stage.X - frames[frameIndex].Width)
                 {
-                    position.X = stage.X - tex.Width;
-                }
-                if (position.X > SharingComponent.stage.X - frames[frameIndex].Width)
-                {
-                    position.X = SharingComponent.stage.X - frames[frameIndex].Width;
+                    position.X = stage.X - frames[frameIndex].Width;
                 }
             }
             if (ks.IsKeyDown(Keys.Right))
             {
                 position += xSpeed;
-                if (position.X > stage.X - tex.Width)
+                if (position.X > stage.X - frames[frameIndex].Width)
                 {
-                    position.X = stage.X - tex.Width;
-                }
-                if (position.X > SharingComponent.stage.X - frames[frameIndex].Width)
-                {
-                    position.X = SharingComponent.stage.X - frames[frameIndex].Width;
+                    position.X = stage.X - frames[frameIndex].Width;
                 }
             }
 
@@ -119,21 +112,17 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
                     position.Y = 0;
                 }
 
-                if (position.Y > SharingComponent.stage.Y - frames[frameIndex].Height)
+                if (position.Y > stage.Y - frames[frameIndex].Height)
                 {
-                    position.Y = SharingComponent.stage.Y - frames[frameIndex].Height;
+                    position.Y = stage.Y - frames[frameIndex].Height;
                 }
             }
             if (ks.IsKeyDown(Keys.Down))
             {
                 position += ySpeed;
-                if (position.Y > stage.Y - tex.Height)
+                if (position.Y > stage.Y - frames[frameIndex].Height)
                 {
-                    position.Y = stage.Y - tex.Height;
-                }
-                if (position.Y > SharingComponent.stage.Y - frames[frameIndex].Height)
-                {
-                    position.Y = SharingComponent.stage.Y - frames[frameIndex].Height;
+                    position.Y = stage.Y - frames[frameIndex].Height;
                 }
             }
 
@@ -146,6 +135,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
             if (frameIndex >= 0)
             {
+                
                 sb.Begin();
                 // version 4
                 sb.Draw(tex, position, frames[frameIndex], Color.White);
