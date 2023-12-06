@@ -45,18 +45,31 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
         {
+            KeyboardState ks = Keyboard.GetState();
+
             Vector2 stage = new Vector2(SharingComponent.stage.X,
                 SharingComponent.stage.Y);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // Addition of airplane
-            Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
+            //Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
+            Texture2D airplaneTex = game.Content.Load<Texture2D>("images/Airplane");
             Vector2 airplaneInitPos = new Vector2(70, 200 );
             Vector2 airplaneXSpeed = new Vector2(5, 0);
             Vector2 airplaneYSpeed = new Vector2(0, 5);
 
-            airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage);
+            //airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage);
+            //this.Components.Add(airplane);
+            airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage, 3);
             this.Components.Add(airplane);
+
+            if (ks.IsKeyDown(Keys.Up))
+            {
+                Vector2 pos =  airplane.Position;
+               
+                this.Components.Add(airplane);
+            }
+            
 
             // Addition of missile
             missileTex = game.Content.Load<Texture2D>("images/MissileFire");
@@ -67,28 +80,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             bombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
             mineBomb = new MineBomb(game, _spriteBatch, bombTex, Vector2.Zero, 10);
             this.Components.Add(mineBomb);
-
-
-            //airplaneTex1 = game.Content.Load<Texture2D>("images/AirPlane");
-            //var airplaneAnimation = new Dictionary<string, AirplaneAnimation>()
-            //{
-            //    { "Airplane", new AirplaneAnimation(airplaneTex1,8)},
-
-
-            //};
-            //_airplaneSprites = new List<AirplaneSprite>()
-            //{
-            //    new AirplaneSprite(airplaneAnimation)
-            //    {
-            //        Input = new AirplaneInput()
-            //        {
-            //            Up = Keys.Up,
-            //            Down = Keys.Down,
-            //            Left = Keys.Left,
-            //            Right = Keys.Right,
-            //        }
-            //    }
-            //};
 
 
             g = game;
