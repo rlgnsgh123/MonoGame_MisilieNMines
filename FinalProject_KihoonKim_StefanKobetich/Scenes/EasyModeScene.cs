@@ -64,47 +64,51 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 this.Components.Add(airplane);
             }
 
-
-            // Addition of missile
-            missileTex = game.Content.Load<Texture2D>("images/MissileFire");
-            missile = new Missile(game, _spriteBatch, missileTex, Vector2.Zero, 5);
-            this.Components.Add(missile);
-
-            Random r = new Random();
-
             int airMinePos = 800;
             int groundMinePos = 700;
-            int airMineCount = 10;
-            int groundMineCount = 10;
+            int missilePos = 1100;
+            int airMineCount = 20;
+            int groundMineCount = 20;
+            int missileCount = 20;
 
+            // Addition of Missile
+            for (int i = 0; i < missileCount; i++)
+            {
+                int randomPosAway = RandomNumberGenerator.GetInt32(250, 750);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(25, 400);
 
+                missilePos = missilePos + randomPosAway;
+                missileTex = game.Content.Load<Texture2D>("images/MissileFire");
+                missile = new Missile(game, _spriteBatch, missileTex, new Vector2(missilePos, randomPosHigh), 5);
+                this.Components.Add(missile);
+                missile.Show();
+            }
+
+            // Addition of MineBomb air
             for (int i = 0; i < airMineCount; i++)
             {
                 int randomPosAway = RandomNumberGenerator.GetInt32(200, 350);
-                int randomPosHigh = RandomNumberGenerator.GetInt32(2, 250);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(5, 200);
 
                 airMinePos = airMinePos + randomPosAway;
-                // Addition of MineBomb air
                 airBombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
                 mineBomb = new MineBomb(game, _spriteBatch, airBombTex, new Vector2(airMinePos, randomPosHigh), 10);
                 this.Components.Add(mineBomb);
                 mineBomb.Show();
             }
 
+            // Addition of MineBomb ground
             for (int i = 0; i < groundMineCount; i++)
             {
                 int randomPosAway = RandomNumberGenerator.GetInt32(250, 400);
                 int randomPosHigh = RandomNumberGenerator.GetInt32(210, 375);
 
                 groundMinePos = groundMinePos + randomPosAway;
-                // Addition of MineBomb ground
                 groundBombTex = game.Content.Load<Texture2D>("images/mineBombGroundHigh");
                 mineBomb = new MineBomb(game, _spriteBatch, groundBombTex, new Vector2(groundMinePos, randomPosHigh), 10);
                 this.Components.Add(mineBomb);
                 mineBomb.Show();
             }
-
-
 
 
 
@@ -121,18 +125,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 g.Exit();
             }
 
-            // TODO: Add your update logic here
-            MouseState ms = Mouse.GetState();
-            if (ms.LeftButton == ButtonState.Pressed)
-            {
-                Vector2 pos = new Vector2(ms.X - 32, ms.Y - 32);
 
-                Missile missile = new Missile(g, _spriteBatch, missileTex, pos, 8);
-                missile.Show();
-                this.Components.Add(missile);
-
-                Debug.Print(this.Components.Count.ToString());
-            }
 
             base.Update(gameTime);
         }
