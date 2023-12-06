@@ -66,20 +66,29 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
             int airMinePos = 800;
             int groundMinePos = 700;
-            int missilePos = 1100;
+            int missilePos = 1200;
             int airMineCount = 20;
             int groundMineCount = 20;
             int missileCount = 20;
+            int missileSpeed = -3;
 
             // Addition of Missile
             for (int i = 0; i < missileCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(250, 750);
+                int randomPosAway = RandomNumberGenerator.GetInt32(250, 775);
                 int randomPosHigh = RandomNumberGenerator.GetInt32(25, 400);
+                int randomSpeed = RandomNumberGenerator.GetInt32(-5, -2);
 
                 missilePos = missilePos + randomPosAway;
-                missileTex = game.Content.Load<Texture2D>("images/MissileFire");
-                missile = new Missile(game, _spriteBatch, missileTex, new Vector2(missilePos, randomPosHigh), 5);
+                if (randomSpeed == -3 || randomSpeed == -2)
+                {
+                    missileTex = game.Content.Load<Texture2D>("images/smallMissile");
+                }
+                else
+                {
+                    missileTex = game.Content.Load<Texture2D>("images/MissileFire");
+                }
+                missile = new Missile(game, _spriteBatch, missileTex, new Vector2(missilePos, randomPosHigh), 5, randomSpeed);
                 this.Components.Add(missile);
                 missile.Show();
             }
@@ -112,7 +121,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
 
 
-            CollisionManager cm = new CollisionManager(g, missile, mineBomb);
+            CollisionManager cm = new CollisionManager(g, missile, mineBomb, airplane);
             this.Components.Add(cm);
         }
 

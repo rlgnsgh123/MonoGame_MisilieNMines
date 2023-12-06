@@ -13,6 +13,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         private Texture2D tex;
         private Vector2 position;
         private int delay;
+        private int speed;
 
         private Vector2 dimension;
         private List<Rectangle> frames;
@@ -24,17 +25,17 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         private const int COLS = 1;
 
         public Vector2 Position { get => position; set => position = value; }
-
         private Game g;
 
         // Constructor for missile, allows for a somewhat customizable missile
-        public Missile(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, int delay) : base(game)
+        public Missile(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, int delay, int speed) : base(game)
         {
             this.g = game;
             this.sb = sb;
             this.tex = tex;
             this.Position = position;
             this.delay = delay;
+            this.speed = speed;
             this.dimension = new Vector2(tex.Width / COLS, tex.Height / ROWS);
             CreateFrames();
             Hide();
@@ -59,7 +60,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         // Handles any of the updating and animation
         public override void Update(GameTime gameTime)
         {
-            position += new Vector2(-3, 0);
+            position += new Vector2(speed, 0);
 
             delayCounter++;
             if (delayCounter > delay)
