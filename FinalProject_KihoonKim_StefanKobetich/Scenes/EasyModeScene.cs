@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using SharpDX.WIC;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,32 +20,42 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     /// </summary>
     public class EasyModeScene : GameScene
     {
+        private Game g;
+        private CollisionManager _collisionManager;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private SpriteFont spriteFont;
         private Texture2D missileTex;
         private Texture2D groundBombTex;
         private Texture2D airBombTex;
         private Texture2D coinTex;
+        private Texture2D bombTex;
+        private Texture2D airplaneTex;
+        private Texture2D airplaneTex1;
         private Missile missile;
         private MineBomb mineBomb;
         private Coin coin;
         private Airplane airplane;
-        private Texture2D bombTex;
-        private Texture2D airplaneTex;
-        private Texture2D airplaneTex1;
-        private Game g;
         private SoundEffect nearMiss;
-        private SpriteFont spriteFont;
-
+        private EndScene endScene;
+        private List<AirplaneSprite> _airplaneSprites;
+        private List<Missile> missileList;
+        private List<MineBomb> mineBombList;
+        private List<Coin> coinList;
+        private int coinListCount = 0;
         private int score = 0;
+        private int coinPos = 800;
+        private int airMinePos = 800;
+        private int groundMinePos = 700;
+        private int missilePos = 1200;
+        private int airMineCount = 20;
+        private int groundMineCount = 20;
+        private int missileCount = 20;
+        private const int coinAmount = 30;
         private float scoreUpdateInterval = 0.05f;
         private float scoreTimer = 0.0f;
         public bool isGameDone = false;
 
-        private EndScene endScene;
-
-        private CollisionManager _collisionManager;
-        private List<AirplaneSprite> _airplaneSprites;
 
         // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
@@ -71,16 +82,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             //this.Components.Add(airplane);
             airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage, 3);
             this.Components.Add(airplane);
-
-
-            int coinPos = 800;
-            int airMinePos = 800;
-            int groundMinePos = 700;
-            int missilePos = 1200;
-            int airMineCount = 20;
-            int groundMineCount = 20;
-            int missileCount = 20;
-            int coinAmount = 30;
 
             // Addition of Missile
             for (int i = 0; i < missileCount; i++)
@@ -142,9 +143,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 mineBomb.Show();
             }
 
-            List<Missile> missileList = this.Components.OfType<Missile>().ToList();
-            List<MineBomb> mineBombList = this.Components.OfType<MineBomb>().ToList();
-            List<Coin> coinList = this.Components.OfType<Coin>().ToList();
+            missileList = this.Components.OfType<Missile>().ToList();
+            mineBombList = this.Components.OfType<MineBomb>().ToList();
+            coinList = this.Components.OfType<Coin>().ToList();
 
             _collisionManager = new CollisionManager(g, missileList, mineBombList, coinList, mineBomb, airplane, this); // 수정된 부분
             this.Components.Add(_collisionManager);
@@ -196,6 +197,15 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
         public void EndGame()
         {
+            coinList = this.Components.OfType<Coin>().ToList();
+            foreach (Coin coin in coinList)
+            {
+                if (coin.Enabled == false)
+                {
+                    coinListCount++;
+                }
+            }
+            PlayerInfo.PlayerCoinScore = coinListCount.ToString();
             Rectangle airplaneBox = airplane.getBounds();
             int x = airplaneBox.X;
             int y = airplaneBox.Y;
