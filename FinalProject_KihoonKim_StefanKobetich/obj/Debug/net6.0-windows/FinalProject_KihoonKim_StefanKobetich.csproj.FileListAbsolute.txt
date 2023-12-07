@@ -102,3 +102,6 @@ C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProje
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\Nio.xnb
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\whoosh.xnb
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\kaboom.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\daftyMusic.wma
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\daftyMusic.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\coin.xnb

@@ -17,7 +17,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         bool isFirst = true;
         EasyModeScene easyModeScene;
         HardModeScene hardModeScene;
-        private Game g = new Game();
 
         private MenuComponent menu;
         public MenuComponent Menu { get => menu; set => menu = value; }
