@@ -4,6 +4,7 @@ using FinalProject_KihoonKim_StefanKobetich.Shared;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Linq;
 
 namespace FinalProject_KihoonKim_StefanKobetich
@@ -71,6 +72,11 @@ namespace FinalProject_KihoonKim_StefanKobetich
 
 
             startScene.show();
+
+            Song backgroundMusic = this.Content.Load<Song>("audio/Nio");
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(backgroundMusic);
+
 
         }
 

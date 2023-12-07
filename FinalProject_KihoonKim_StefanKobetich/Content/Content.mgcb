@@ -25,6 +25,12 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Users/rlgns/Downloads/background.png;images/background.png
 
+#begin audio/Nio.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:audio/Nio.mp3
+
 #begin fonts/NormalFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -81,6 +87,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:images/floatingMineBomb.png
+
+#begin images/kaboom.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/kaboom.jpg
 
 #begin images/mineBombGroundHigh.png
 /importer:TextureImporter

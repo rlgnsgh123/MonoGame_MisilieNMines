@@ -23,6 +23,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private const int ROWS = 3;
         private const int COLS = 1;
+        private const int HITBOXSHRINK = 20;
 
         public Vector2 Position { get => position; set => position = value; }
         private Game g;
@@ -110,14 +111,14 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         // Shows the missile
         public void Show()
         {
-            this.Enabled = true;
+            this.Enabled = true;    
             this.Visible = true;
         }
 
         // Method to get the boundry / hitbox of the missile
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X, (int)position.Y, (int)dimension.X, (int)dimension.Y);
+            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK, (int)dimension.X - HITBOXSHRINK + HITBOXSHRINK, (int)dimension.Y);
         }
     }
 }

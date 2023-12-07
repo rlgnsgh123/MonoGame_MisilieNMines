@@ -14,7 +14,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
     public class Airplane : DrawableGameComponent
     {
 
-        private SpriteBatch sb;
+        public SpriteBatch sb;
         private Texture2D tex;
 
         private Vector2 position;
@@ -27,6 +27,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private const int ROWS = 1;
         private const int COLS = 8;
+        private const int HITBOXSHRINK = 40;
 
         private Vector2 xSpeed;
         private Vector2 ySpeed;
@@ -146,7 +147,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         }
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X, (int)position.Y, (int)dimension.X, (int)dimension.Y);
+            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK, (int)dimension.X - HITBOXSHRINK, (int)dimension.Y);
         }
     }
 }

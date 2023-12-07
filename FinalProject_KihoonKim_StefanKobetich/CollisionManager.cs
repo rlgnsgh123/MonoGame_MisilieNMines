@@ -61,9 +61,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 }
             }
 
-
-
-
             base.Update(gameTime);
         }
         private void HandleCollision()
