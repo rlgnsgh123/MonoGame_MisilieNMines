@@ -86,7 +86,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             
             _spriteBatch.End();
 
-            base.Draw(gameTime);
+            //base.Draw(gameTime);
         }
 
         public override void Update(GameTime gameTime)
@@ -94,7 +94,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             if (this.Enabled)
             {
                 HandleInput();
-                base.Update(gameTime);
+                //base.Update(gameTime);
             }
         }
 

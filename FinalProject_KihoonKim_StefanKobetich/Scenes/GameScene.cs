@@ -42,7 +42,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                     component.Update(gameTime);
                 }
             }
-            base.Update(gameTime);
+           base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
