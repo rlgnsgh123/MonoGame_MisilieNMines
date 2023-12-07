@@ -45,9 +45,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
         {
-            endScene = new EndScene(game, score);
-            this.Components.Add(endScene);
-            endScene.hide();
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             g = game;
@@ -180,9 +177,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
         public void EndGame()
         {
+            Rectangle airplaneBox = airplane.getBounds();
+            int x = airplaneBox.X;
+            int y = airplaneBox.Y;
             isGameDone = true;
             // 게임이 종료되면 EndScene을 보여줄 수 있습니다.
-            EndScene endScene = new EndScene(g, score);
+            EndScene endScene = new EndScene(g, score, new Vector2(x, y));
             Game.Components.Add(endScene);
             endScene.show();
             this.hide();

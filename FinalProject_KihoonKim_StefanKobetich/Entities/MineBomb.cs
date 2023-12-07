@@ -22,7 +22,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private const int ROWS = 4;
         private const int COLS = 1;
-        private const int HITBOXSHRINK = 20;
+        private const int HITBOXSHRINK = 25;
 
         public Vector2 Position { get => position; set => position = value; }
 
@@ -116,7 +116,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         // Method to get the boundry / hitbox of the MineBomb
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK, (int)dimension.X, (int)dimension.Y);
+            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK, (int)dimension.X - HITBOXSHRINK, (int)dimension.Y);
         }
     }
 }

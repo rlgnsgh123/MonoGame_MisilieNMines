@@ -88,7 +88,7 @@
 /processorParam:TextureFormat=Color
 /build:images/floatingMineBomb.png
 
-#begin images/kaboom.jpg
+#begin images/kaboom.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -98,7 +98,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:images/kaboom.jpg
+/build:images/kaboom.png
 
 #begin images/mineBombGroundHigh.png
 /importer:TextureImporter
