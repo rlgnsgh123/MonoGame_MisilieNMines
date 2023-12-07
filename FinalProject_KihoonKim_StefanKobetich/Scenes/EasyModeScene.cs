@@ -168,7 +168,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
 
 
-            base.Update(gameTime);
+           base.Update(gameTime);
         }
 
         private void UpdateScore(float elapsedSeconds)
