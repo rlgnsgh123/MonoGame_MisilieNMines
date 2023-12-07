@@ -21,6 +21,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private MineBomb mineBomb;
         private GameScene gameScene;
 
+        private int numberGetCoin = 0;
+
         public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Coin> coinList, MineBomb mineBomb, Airplane airplane, GameScene gameScene) : base(game)
         {
             this.coinList = coinList;
@@ -54,10 +56,15 @@ namespace FinalProject_KihoonKim_StefanKobetich
             foreach (Coin c in coinList)
             {
                 coinRect = c.getBounds();
+                
                 if (airplaneRect.Intersects(coinRect))
                 {
+                    PlayerInfo.PlayerCoinScore++;
                     c.Visible = false;
                     c.Enabled = false;
+
+                   
+                    ;
                 }
             }
             foreach (MineBomb b in mineBombList)
@@ -72,7 +79,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     break;
                 }
             }
-
             base.Update(gameTime);
         }
         private void HandleCollision()

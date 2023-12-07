@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
-
+using FinalPlayerNameInput;
 
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
@@ -14,10 +14,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     /// </summary>
     public class PlayMenuScene : GameScene
     {
+       
         bool isFirst = true;
         EasyModeScene easyModeScene;
         HardModeScene hardModeScene;
-        private Game g = new Game();
 
         private MenuComponent menu;
         public MenuComponent Menu { get => menu; set => menu = value; }
@@ -25,9 +25,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private SpriteBatch _spriteBatch;
         SpriteFont normalFont;
 
+        Game1 g;
+
         // Loads the selection screen for if the user wants hard mode or easy mode
         public PlayMenuScene(Game game) : base(game)
         {
+
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
            
             easyModeScene = new EasyModeScene(game);
@@ -37,7 +40,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             game.Components.Add(hardModeScene);
             
 
-            Game1 g = (Game1)game;
+            g = (Game1)game;
             normalFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             SpriteFont selectedFont = game.Content.Load<SpriteFont>("fonts/SelectedFont");
             string[] menuItems = { "EasyMode","HardMode" };
@@ -48,7 +51,19 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Handles updating the users mouse
         public override void Update(GameTime gameTime)
         {
-
+            if (easyModeScene!=null)
+            {
+                easyModeScene = new EasyModeScene(g);
+                Game.Components.Add(easyModeScene);
+                
+                PlayerInfo.PlayerCoinScore = 0;
+            }
+            else if (hardModeScene != null)
+            {
+                hardModeScene = new HardModeScene(g);
+                Game.Components.Add(hardModeScene);
+                PlayerInfo.PlayerCoinScore = 0;
+            }
             if (this.Enabled)
             {
                 HandleInput();
@@ -69,9 +84,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         {
             int selectedIndex = -1;
             KeyboardState ks = Keyboard.GetState();
+           
 
-            
-             
+
             selectedIndex = Menu.SelectedIndex;
 
             
