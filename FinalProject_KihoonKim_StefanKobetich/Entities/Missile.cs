@@ -119,7 +119,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         // Method to get the boundry / hitbox of the missile
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK, (int)dimension.X - HITBOXSHRINK + HITBOXSHRINK, (int)dimension.Y);
+            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK * 2, (int)dimension.X - HITBOXSHRINK * 2, (int)dimension.Y);
         }
     }
 }
