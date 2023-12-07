@@ -60,7 +60,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_spriteFont, $"Game Over\nFinal Score: {finalScore}", new Vector2(100, 100), Color.White);
+            _spriteBatch.DrawString(_spriteFont, $"Game Over\nFinal Score: {finalScore}\nCoins Collected: {PlayerInfo.PlayerCoinScore}", new Vector2(100, 100), Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);

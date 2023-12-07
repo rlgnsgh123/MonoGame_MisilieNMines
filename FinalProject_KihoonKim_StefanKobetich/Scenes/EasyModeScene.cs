@@ -24,8 +24,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Texture2D missileTex;
         private Texture2D groundBombTex;
         private Texture2D airBombTex;
+        private Texture2D coinTex;
         private Missile missile;
         private MineBomb mineBomb;
+        private Coin coin;
         private Airplane airplane;
         private Texture2D bombTex;
         private Texture2D airplaneTex;
@@ -70,20 +72,21 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             airplane = new Airplane(game, _spriteBatch, airplaneTex, airplaneInitPos, airplaneXSpeed, airplaneYSpeed, stage, 3);
             this.Components.Add(airplane);
 
-          
 
+            int coinPos = 800;
             int airMinePos = 800;
             int groundMinePos = 700;
             int missilePos = 1200;
             int airMineCount = 20;
             int groundMineCount = 20;
             int missileCount = 20;
+            int coinAmount = 30;
 
             // Addition of Missile
             for (int i = 0; i < missileCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(250, 775);
-                int randomPosHigh = RandomNumberGenerator.GetInt32(25, 400);
+                int randomPosAway = RandomNumberGenerator.GetInt32(300, 800);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(25, 350);
                 int randomSpeed = RandomNumberGenerator.GetInt32(-5, -2);
 
                 missilePos = missilePos + randomPosAway;
@@ -103,8 +106,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             // Addition of MineBomb air
             for (int i = 0; i < airMineCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(200, 350);
-                int randomPosHigh = RandomNumberGenerator.GetInt32(5, 200);
+                int randomPosAway = RandomNumberGenerator.GetInt32(250, 400);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(5, 180);
 
                 airMinePos = airMinePos + randomPosAway;
                 airBombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
@@ -113,11 +116,24 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 mineBomb.Show();
             }
 
+            // Addition of coins
+            for (int i = 0; i < coinAmount; i++)
+            {
+                int randomPosAway = RandomNumberGenerator.GetInt32(50, 400);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(50, 150);
+
+                coinPos = coinPos + randomPosAway;
+                coinTex = game.Content.Load<Texture2D>("images/coin");
+                coin = new Coin(game, _spriteBatch, coinTex, new Vector2(coinPos, randomPosHigh), 8);
+                this.Components.Add(coin);
+                coin.Show();
+            }
+
             // Addition of MineBomb ground
             for (int i = 0; i < groundMineCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(250, 400);
-                int randomPosHigh = RandomNumberGenerator.GetInt32(210, 375);
+                int randomPosAway = RandomNumberGenerator.GetInt32(325, 450);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(210, 345);
 
                 groundMinePos = groundMinePos + randomPosAway;
                 groundBombTex = game.Content.Load<Texture2D>("images/mineBombGroundHigh");
@@ -128,8 +144,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
             List<Missile> missileList = this.Components.OfType<Missile>().ToList();
             List<MineBomb> mineBombList = this.Components.OfType<MineBomb>().ToList();
+            List<Coin> coinList = this.Components.OfType<Coin>().ToList();
 
-            _collisionManager = new CollisionManager(g, missileList, mineBombList, mineBomb, airplane, this); // 수정된 부분
+            _collisionManager = new CollisionManager(g, missileList, mineBombList, coinList, mineBomb, airplane, this); // 수정된 부분
             this.Components.Add(_collisionManager);
         }
 

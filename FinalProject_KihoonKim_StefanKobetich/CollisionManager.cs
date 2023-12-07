@@ -15,13 +15,15 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private Game game;
         private EasyModeScene easyModeScene { get; set; }
         private List<Missile> missileList;
+        private List<Coin> coinList;
         private List<MineBomb> mineBombList;
         private Airplane airplane;
         private MineBomb mineBomb;
         private GameScene gameScene;
 
-        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, MineBomb mineBomb, Airplane airplane, GameScene gameScene) : base(game)
+        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Coin> coinList, MineBomb mineBomb, Airplane airplane, GameScene gameScene) : base(game)
         {
+            this.coinList = coinList;
             this.game = game;
             this.airplane = airplane;
             this.mineBomb = mineBomb;
@@ -34,6 +36,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
         {
             Rectangle missileRect = new Rectangle();
             Rectangle bombRect = new Rectangle();
+            Rectangle coinRect = new Rectangle();
             Rectangle airplaneRect = airplane.getBounds();
 
             foreach (Missile m in missileList)
@@ -46,6 +49,17 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     airplane.Enabled = false;
                     HandleCollision();
                     break;
+                }
+            }
+            foreach (Coin c in coinList)
+            {
+                coinRect = c.getBounds();
+                if (airplaneRect.Intersects(coinRect))
+                {
+                    PlayerInfo.PlayerCoinScore++;
+                    c.Visible = false;
+                    c.Enabled = false;
+
                 }
             }
             foreach (MineBomb b in mineBombList)
