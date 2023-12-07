@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
-
+using FinalPlayerNameInput;
 
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
@@ -14,6 +14,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     /// </summary>
     public class PlayMenuScene : GameScene
     {
+       
         bool isFirst = true;
         EasyModeScene easyModeScene;
         HardModeScene hardModeScene;
@@ -29,7 +30,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Loads the selection screen for if the user wants hard mode or easy mode
         public PlayMenuScene(Game game) : base(game)
         {
-            
+
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
            
             easyModeScene = new EasyModeScene(game);

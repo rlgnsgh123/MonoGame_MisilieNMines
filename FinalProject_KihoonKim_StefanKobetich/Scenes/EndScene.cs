@@ -9,11 +9,15 @@ using Microsoft.Xna.Framework.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using FinalProject_KihoonKim_StefanKobetich.Entities;
 using Microsoft.Xna.Framework.Audio;
+using FinalPlayerNameInput;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
     public class EndScene : GameScene
     {
+        private static bool isFormShown = false;
+        private static bool isSubmitName = false;
+        private Form1 finalPlayerNameInput;
         private SpriteBatch _spriteBatch;
         private SpriteFont _spriteFont;
         StartScene startScene;
@@ -28,6 +32,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
         public EndScene(Game game, int score, Vector2 location) : base(game)
         {
+            int gameWindowX = ((Game1)game).Window.ClientBounds.X;
+            int gameWindowY = ((Game1)game).Window.ClientBounds.Y;
+
             g = (Game1) game;
 
             kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
@@ -62,6 +69,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             kaboom.Show();
 
             //
+            
+            //
             retryRect = new Rectangle(100, 400, 200, 50);
             exitRect = new Rectangle(400, 400, 200, 50);
             hide();
@@ -94,24 +103,37 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         {
             KeyboardState ks = Keyboard.GetState();
             MouseState mouseState = Mouse.GetState();
-
-            if (retryRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed)
+            
+            if (!isFormShown)
+            {
+                finalPlayerNameInput = new Form1();
+                isFormShown = true;
+                finalPlayerNameInput.ShowDialog();
+                isSubmitName = true;
+            }
+            if (retryRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed && isSubmitName ==true)
             {
                 Game.Components.Remove(this);
                 g.PlayMenuScene.show();
-                
+                isFormShown = false;
+                isSubmitName = false;
+
             }
 
-            if (exitRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed)
+            if (exitRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed && isSubmitName == true)
             {
                 Game.Components.Remove(this);
                 startScene.show();
+                isFormShown = false;
+                isSubmitName = false;
             }
 
-            if (ks.IsKeyDown(Keys.Escape))
+            if (ks.IsKeyDown(Keys.Escape) && isSubmitName == true)
             {
                 Game.Components.Remove(this);
                 startScene.show();
+                isFormShown = false;
+                isSubmitName = false;
             }
         }
     }
