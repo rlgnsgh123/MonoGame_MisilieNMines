@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using FinalProject_KihoonKim_StefanKobetich.Entities;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 //using FinalPlayerNameInput;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
@@ -27,47 +28,55 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Kaboom kaboom;
         private SoundEffect kaboomSound;
         private int kaboomMoveSize = 50;
+        private int bonusAmount = 0;
         private Rectangle retryRect;
         private Rectangle exitRect;
+        private string bonusMsg = string.Empty;
         Game1 g;
 
-        public EndScene(Game game, int score, Vector2 location) : base(game)
+        public EndScene(Game game, int score, Vector2 location, bool passed) : base(game)
         {
             int gameWindowX = ((Game1)game).Window.ClientBounds.X;
             int gameWindowY = ((Game1)game).Window.ClientBounds.Y;
-
-            g = (Game1) game;
-
-            kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
-            kaboomSound.Play();
-
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
             _spriteFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             finalScore = score;
+            g = (Game1)game;
 
             startScene = g.StartScene;
+                
+            if (passed == false)
+            {
+                kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
+                kaboomSound.Play();
 
-            kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
-            kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
-            this.Components.Add(kaboom);
-            kaboom.Show();
-            location.Y = location.Y + kaboomMoveSize;
-            kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
-            this.Components.Add(kaboom);
-            kaboom.Show();
-            location.Y = location.Y - (kaboomMoveSize * 2);
-            kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
-            this.Components.Add(kaboom);
-            kaboom.Show();
-            location.X = location.X + kaboomMoveSize;
-            location.Y = location.Y + kaboomMoveSize;
-            kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
-            this.Components.Add(kaboom);
-            kaboom.Show();
-            location.X = location.X - (kaboomMoveSize * 2);
-            kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
-            this.Components.Add(kaboom);
-            kaboom.Show();
+                kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
+                this.Components.Add(kaboom);
+                kaboom.Show();
+                location.Y = location.Y + kaboomMoveSize;
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                this.Components.Add(kaboom);
+                kaboom.Show();
+                location.Y = location.Y - (kaboomMoveSize * 2);
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                this.Components.Add(kaboom);
+                kaboom.Show();
+                location.X = location.X + kaboomMoveSize;
+                location.Y = location.Y + kaboomMoveSize;
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                this.Components.Add(kaboom);
+                kaboom.Show();
+                location.X = location.X - (kaboomMoveSize * 2);
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                this.Components.Add(kaboom);
+                kaboom.Show();
+            }
+            else
+            {
+                bonusMsg = "+200 Bonus!";
+                bonusAmount = 200;
+            }
 
             //
             
@@ -80,7 +89,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_spriteFont, $"Game Over\nSurvival Score: {finalScore}\nCoins Collected: {PlayerInfo.PlayerCoinScore}\nFinal Score: {finalScore + PlayerInfo.PlayerCoinScore}", new Vector2(100, 100), Color.White);
+            _spriteBatch.DrawString(_spriteFont, $"Game Over\nSurvival Score: {finalScore}\nCoins Collected: {PlayerInfo.PlayerCoinScore}\nFinal Score: {finalScore + PlayerInfo.PlayerCoinScore + bonusAmount} {bonusMsg}", new Vector2(100, 100), Color.White);
             _spriteBatch.DrawString(_spriteFont, "Retry", new Vector2(retryRect.X, retryRect.Y), Color.White);
             _spriteBatch.DrawString(_spriteFont, "Exit", new Vector2(exitRect.X, exitRect.Y), Color.White);
             
@@ -114,15 +123,16 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
             if (retryRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed && isSubmitName ==true)
             {
+                PlayMusic();
                 Game.Components.Remove(this);
                 g.PlayMenuScene.show();
                 isFormShown = false;
                 isSubmitName = false;
-
             }
 
             if (exitRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed && isSubmitName == true)
             {
+                PlayMusic();
                 Game.Components.Remove(this);
                 startScene.show();
                 isFormShown = false;
@@ -136,6 +146,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 isFormShown = false;
                 isSubmitName = false;
             }
+        }
+        private void PlayMusic()
+        {
+            Song backgroundMusic = g.Content.Load<Song>("audio/Nio");
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(backgroundMusic);
         }
     }
 }

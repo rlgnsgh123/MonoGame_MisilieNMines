@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using SharpDX.WIC;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -37,39 +36,37 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Coin coin;
         private Airplane airplane;
         private SoundEffect nearMiss;
+        private SoundEffect coinCollectSound;
         private EndScene endScene;
         private List<AirplaneSprite> _airplaneSprites;
         private List<Missile> missileList;
         private List<MineBomb> mineBombList;
         private List<Coin> coinList;
         private int coinListCount = 0;
+        private int coinSoundCount = 0;
         private int score = 0;
         private int coinPos = 800;
         private int airMinePos = 800;
         private int groundMinePos = 700;
         private int missilePos = 1500;
-        private int airMineCount = 20;
+        private int airMineCount = 24;
         private int groundMineCount = 20;
         private int missileCount = 15;
         private const int coinAmount = 30;
         private float scoreUpdateInterval = 0.05f;
         private float scoreTimer = 0.0f;
+        private bool passed = false;
         public bool isGameDone = false;
 
 
         // Constructor to load the game materials
         public EasyModeScene(Game game) : base(game)
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
             g = game;
-
-            KeyboardState ks = Keyboard.GetState();
-
-            Vector2 stage = new Vector2(SharingComponent.stage.X,
-                SharingComponent.stage.Y);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            nearMiss = game.Content.Load<SoundEffect>("audio/whoosh");
+            coinCollectSound = g.Content.Load<SoundEffect>("audio/coinCollect");
+            KeyboardState ks = Keyboard.GetState();
+            Vector2 stage = new Vector2(SharingComponent.stage.X, SharingComponent.stage.Y);
 
             // Addition of airplane
             //Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
@@ -166,10 +163,28 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 EndGame();
                 return;
             }
+            if (score == 1500)
+            {
+                passed = true;
+                EndGame();
+            }
 
+            coinList = this.Components.OfType<Coin>().ToList();
+            foreach (Coin coin in coinList)
+            {
+                if (coin.Enabled == false)
+                {
+                    coinListCount++;
+                }
+            }
+            if (coinListCount != coinSoundCount)
+            {
+                coinSoundCount++;
+                coinCollectSound.Play();
+            }
+            coinListCount = 0;
 
-
-           base.Update(gameTime);
+            base.Update(gameTime);
         }
 
         private void UpdateScore(float elapsedSeconds)
@@ -211,7 +226,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             int y = airplaneBox.Y;
             isGameDone = true;
             // 게임이 종료되면 EndScene을 보여줄 수 있습니다.
-            EndScene endScene = new EndScene(g, score, new Vector2(x, y));
+            EndScene endScene = new EndScene(g, score, new Vector2(x, y), passed);
             Game.Components.Add(endScene);
             endScene.show();
             Game.Components.Remove(this);

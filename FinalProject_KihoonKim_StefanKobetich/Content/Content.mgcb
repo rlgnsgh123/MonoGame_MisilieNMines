@@ -25,6 +25,12 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Users/rlgns/Downloads/background.png;images/background.png
 
+#begin audio/coinCollect.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/coinCollect.wav
+
 #begin audio/daftyMusic.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
@@ -117,6 +123,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:images/floatingMineBomb.png
+
+#begin images/Help.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/Help.jpg
 
 #begin images/kaboom.png
 /importer:TextureImporter

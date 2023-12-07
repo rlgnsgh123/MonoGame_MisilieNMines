@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/floatingMineBomb.png</SourceFile>
-  <SourceTime>2023-12-06T09:12:55.2996093-05:00</SourceTime>
-  <DestFile>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/bin/Windows/images/floatingMineBomb.xnb</DestFile>
-  <DestTime>2023-12-07T14:52:41.3354518-05:00</DestTime>
+  <SourceFile>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/Help.jpg</SourceFile>
+  <SourceTime>2023-12-07T14:20:14.0747942-05:00</SourceTime>
+  <DestFile>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/bin/Windows/images/Help.xnb</DestFile>
+  <DestTime>2023-12-07T14:52:41.3744946-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
