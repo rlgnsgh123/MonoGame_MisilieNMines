@@ -4,13 +4,14 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/daftyMusic.mp3</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/Nio.mp3</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/Speedy Whoosh Sound Effect.wav</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/NormalFont.spritefont</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/PlayerNameFont.spritefont</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/SelectedFont.spritefont</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/AirPlane.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/AirPlane1.png</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/coin.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/floatingMineBomb.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/kaboom.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/mineBombGroundHigh.png</File>
@@ -19,7 +20,8 @@
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
-    <File>audio/whoosh.wav</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -75,10 +75,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
 
             startScene.show();
 
-            Song backgroundMusic = this.Content.Load<Song>("audio/Nio");
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Play(backgroundMusic);
-
 
         }
 

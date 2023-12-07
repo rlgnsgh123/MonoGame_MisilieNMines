@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Media;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
@@ -21,6 +22,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Adding the menu to the start screen
         public StartScene(Game game) : base(game)
         {
+            Song backgroundMusic = game.Content.Load<Song>("audio/Nio");
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(backgroundMusic);
+
             Game1 g = (Game1)game;
             SpriteFont normalFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             SpriteFont selectedFont = game.Content.Load<SpriteFont>("fonts/SelectedFont");

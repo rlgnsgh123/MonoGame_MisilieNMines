@@ -25,6 +25,12 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Users/rlgns/Downloads/background.png;images/background.png
 
+#begin audio/daftyMusic.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:audio/daftyMusic.mp3
+
 #begin audio/Explosion sound effect - REALISTIC.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -87,6 +93,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:images/AirPlane1.png
+
+#begin images/coin.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/coin.png
 
 #begin images/floatingMineBomb.png
 /importer:TextureImporter

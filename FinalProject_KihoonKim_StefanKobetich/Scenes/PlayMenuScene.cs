@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 using System.IO;
 
 
@@ -16,7 +17,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         bool isFirst = true;
         EasyModeScene easyModeScene;
         HardModeScene hardModeScene;
-
+        private Game g = new Game();
 
         private MenuComponent menu;
         public MenuComponent Menu { get => menu; set => menu = value; }
@@ -90,6 +91,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             {
                 this.hide();
                 easyModeScene.show();
+
+                Song backgroundMusic = g.Content.Load<Song>("audio/daftyMusic");
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Play(backgroundMusic);
             }
             else if (selectedIndex == 1 && ks.IsKeyDown(Keys.Space))
             {
