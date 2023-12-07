@@ -25,6 +25,12 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Users/rlgns/Downloads/background.png;images/background.png
 
+#begin audio/daftyMusic.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:audio/daftyMusic.mp3
+
 #begin audio/Explosion sound effect - REALISTIC.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

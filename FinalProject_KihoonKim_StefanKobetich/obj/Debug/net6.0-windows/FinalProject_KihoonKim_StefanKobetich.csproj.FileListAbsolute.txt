@@ -97,3 +97,5 @@ C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_Stef
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\Nio.wma
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\Nio.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\whoosh.xnb
+C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\daftyMusic.xnb
+C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\daftyMusic.wma
