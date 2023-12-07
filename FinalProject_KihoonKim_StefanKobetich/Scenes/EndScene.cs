@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using FinalProject_KihoonKim_StefanKobetich.Entities;
+using Microsoft.Xna.Framework.Audio;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
@@ -19,9 +20,13 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private int finalScore;
         private Texture2D kaboomTex;
         private Kaboom kaboom;
+        private SoundEffect kaboomSound;
         private int kaboomMoveSize = 50;
         public EndScene(Game game, int score, Vector2 location) : base(game)
         {
+            kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
+            kaboomSound.Play();
+
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
             _spriteFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             finalScore = score;
@@ -32,7 +37,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
             this.Components.Add(kaboom);
             kaboom.Show();
-            kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
             location.Y = location.Y + kaboomMoveSize;
             kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
             this.Components.Add(kaboom);

@@ -2,6 +2,7 @@
 using FinalProject_KihoonKim_StefanKobetich.Shared;
 using FinalProject_KihoonKim_StefanKobetich.Sprites;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -29,7 +30,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Texture2D airplaneTex;
         private Texture2D airplaneTex1;
         private Game g;
-
+        private SoundEffect nearMiss;
         private SpriteFont spriteFont;
 
         private int score = 0;
@@ -54,8 +55,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             Vector2 stage = new Vector2(SharingComponent.stage.X,
                 SharingComponent.stage.Y);
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            
-           
+
+            nearMiss = game.Content.Load<SoundEffect>("audio/whoosh");
+
             // Addition of airplane
             //Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
             Texture2D airplaneTex = game.Content.Load<Texture2D>("images/Airplane");

@@ -25,11 +25,23 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Users/rlgns/Downloads/background.png;images/background.png
 
+#begin audio/Explosion sound effect - REALISTIC.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/Explosion sound effect - REALISTIC.wav
+
 #begin audio/Nio.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:audio/Nio.mp3
+
+#begin audio/Speedy Whoosh Sound Effect.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:audio/Speedy Whoosh Sound Effect.wav;audio/whoosh.wav
 
 #begin fonts/NormalFont.spritefont
 /importer:FontDescriptionImporter

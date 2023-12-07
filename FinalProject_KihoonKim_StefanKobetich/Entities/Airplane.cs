@@ -16,7 +16,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         public SpriteBatch sb;
         private Texture2D tex;
-
         private Vector2 position;
         private int delay;
 
@@ -130,7 +129,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
             base.Update(gameTime);
         }
-
 
         public override void Draw(GameTime gameTime)
         {

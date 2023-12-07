@@ -53,11 +53,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 bombRect = b.getBounds();
                 if (airplaneRect.Intersects(bombRect))
                 {
-
-
-
-
-
                     // Put code for what happens on an inersection here
                     airplane.Visible = false;
                     airplane.Enabled = false;
