@@ -205,7 +205,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                     coinListCount++;
                 }
             }
-            PlayerInfo.PlayerCoinScore = coinListCount.ToString();
+            PlayerInfo.PlayerCoinScore = coinListCount;
             Rectangle airplaneBox = airplane.getBounds();
             int x = airplaneBox.X;
             int y = airplaneBox.Y;
