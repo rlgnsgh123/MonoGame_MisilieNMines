@@ -97,6 +97,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
             }
 
+            
+
+
             preStage = ks;
             base.Update(gameTime);
         }

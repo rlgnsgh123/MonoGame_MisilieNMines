@@ -22,6 +22,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Kaboom kaboom;
         private SoundEffect kaboomSound;
         private int kaboomMoveSize = 50;
+        private Rectangle retryRect;
+        private Rectangle exitRect;
         Game1 g;
 
         public EndScene(Game game, int score, Vector2 location) : base(game)
@@ -58,13 +60,20 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
             this.Components.Add(kaboom);
             kaboom.Show();
-            hide(); // 처음에는 화면에 보이지 않도록 숨김
+
+            //
+            retryRect = new Rectangle(100, 400, 200, 50);
+            exitRect = new Rectangle(400, 400, 200, 50);
+            hide();
         }
 
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_spriteFont, $"Game Over\nFinal Score: {finalScore}\nCoins Collected: {PlayerInfo.PlayerCoinScore}", new Vector2(100, 100), Color.White);
+            _spriteBatch.DrawString(_spriteFont, $"Game Over\nSurvival Score: {finalScore}\nCoins Collected: {PlayerInfo.PlayerCoinScore}\nFinal Score: {finalScore + PlayerInfo.PlayerCoinScore}", new Vector2(100, 100), Color.White);
+            _spriteBatch.DrawString(_spriteFont, "Retry", new Vector2(retryRect.X, retryRect.Y), Color.White);
+            _spriteBatch.DrawString(_spriteFont, "Exit", new Vector2(exitRect.X, exitRect.Y), Color.White);
+            
             _spriteBatch.End();
 
             base.Draw(gameTime);
@@ -79,19 +88,31 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
         }
 
-        // Handles the imput for the easy or hard menu
+        
+
         private void HandleInput()
         {
             KeyboardState ks = Keyboard.GetState();
+            MouseState mouseState = Mouse.GetState();
 
+            if (retryRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed)
+            {
+                Game.Components.Remove(this);
+                g.PlayMenuScene.show();
+                
+            }
+
+            if (exitRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed)
+            {
+                Game.Components.Remove(this);
+                startScene.show();
+            }
 
             if (ks.IsKeyDown(Keys.Escape))
             {
                 Game.Components.Remove(this);
                 startScene.show();
-
             }
-
         }
     }
 }

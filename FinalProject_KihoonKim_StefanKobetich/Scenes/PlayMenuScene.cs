@@ -54,11 +54,14 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             {
                 easyModeScene = new EasyModeScene(g);
                 Game.Components.Add(easyModeScene);
+                
+                PlayerInfo.PlayerCoinScore = 0;
             }
             else if (hardModeScene != null)
             {
                 hardModeScene = new HardModeScene(g);
                 Game.Components.Add(hardModeScene);
+                PlayerInfo.PlayerCoinScore = 0;
             }
             if (this.Enabled)
             {
@@ -80,9 +83,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         {
             int selectedIndex = -1;
             KeyboardState ks = Keyboard.GetState();
+           
 
-            
-             
+
             selectedIndex = Menu.SelectedIndex;
 
             

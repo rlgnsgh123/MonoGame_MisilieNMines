@@ -27,6 +27,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private GameTime gameTime;
 
         public StartScene StartScene { get => startScene; set => startScene = value; }
+        public PlayMenuScene PlayMenuScene { get => playMenuScene; set => playMenuScene = value; }
 
         // Default constructor to initialize some game comonents
         public Game1()
