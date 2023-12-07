@@ -59,12 +59,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 
                 if (airplaneRect.Intersects(coinRect))
                 {
-                    PlayerInfo.PlayerCoinScore++;
                     c.Visible = false;
                     c.Enabled = false;
-
-                   
-                    ;
                 }
             }
             foreach (MineBomb b in mineBombList)

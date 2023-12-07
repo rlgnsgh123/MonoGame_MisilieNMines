@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using FinalProject_KihoonKim_StefanKobetich.Entities;
 using Microsoft.Xna.Framework.Audio;
-using FinalPlayerNameInput;
+//using FinalPlayerNameInput;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
@@ -18,7 +18,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     {
         private static bool isFormShown = false;
         private static bool isSubmitName = false;
-        private Form1 finalPlayerNameInput;
+        //private Form1 finalPlayerNameInput;
         private SpriteBatch _spriteBatch;
         private SpriteFont _spriteFont;
         StartScene startScene;
@@ -107,9 +107,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             
             if (!isFormShown)
             {
-                finalPlayerNameInput = new Form1();
+                //finalPlayerNameInput = new Form1();
                 isFormShown = true;
-                finalPlayerNameInput.ShowDialog();
+                //finalPlayerNameInput.ShowDialog();
                 isSubmitName = true;
             }
             if (retryRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed && isSubmitName ==true)

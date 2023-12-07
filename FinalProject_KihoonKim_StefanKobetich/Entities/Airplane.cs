@@ -144,7 +144,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
         }
         public Rectangle getBounds()
         {
-            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK * 2, (int)dimension.X - HITBOXSHRINK, (int)dimension.Y);
+            return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK * 2, (int)dimension.X - HITBOXSHRINK * 2, (int)dimension.Y);
         }
     }
 }

@@ -47,10 +47,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private int coinPos = 800;
         private int airMinePos = 800;
         private int groundMinePos = 700;
-        private int missilePos = 1200;
+        private int missilePos = 1500;
         private int airMineCount = 20;
         private int groundMineCount = 20;
-        private int missileCount = 20;
+        private int missileCount = 15;
         private const int coinAmount = 30;
         private float scoreUpdateInterval = 0.05f;
         private float scoreTimer = 0.0f;
@@ -86,7 +86,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             // Addition of Missile
             for (int i = 0; i < missileCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(300, 800);
+                int randomPosAway = RandomNumberGenerator.GetInt32(425, 800);
                 int randomPosHigh = RandomNumberGenerator.GetInt32(25, 350);
                 int randomSpeed = RandomNumberGenerator.GetInt32(-5, -2);
 
