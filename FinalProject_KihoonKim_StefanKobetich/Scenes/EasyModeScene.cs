@@ -187,7 +187,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             EndScene endScene = new EndScene(g, score, new Vector2(x, y));
             Game.Components.Add(endScene);
             endScene.show();
-            this.hide();
+            Game.Components.Remove(this);
         }
 
         // Allows the game to be drawn to the user

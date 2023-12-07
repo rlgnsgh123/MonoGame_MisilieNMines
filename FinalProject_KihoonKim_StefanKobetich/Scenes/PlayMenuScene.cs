@@ -24,9 +24,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private SpriteBatch _spriteBatch;
         SpriteFont normalFont;
 
+        Game1 g;
+
         // Loads the selection screen for if the user wants hard mode or easy mode
         public PlayMenuScene(Game game) : base(game)
         {
+            
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
            
             easyModeScene = new EasyModeScene(game);
@@ -36,7 +39,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             game.Components.Add(hardModeScene);
             
 
-            Game1 g = (Game1)game;
+            g = (Game1)game;
             normalFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             SpriteFont selectedFont = game.Content.Load<SpriteFont>("fonts/SelectedFont");
             string[] menuItems = { "EasyMode","HardMode" };
@@ -47,7 +50,16 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Handles updating the users mouse
         public override void Update(GameTime gameTime)
         {
-
+            if (easyModeScene!=null)
+            {
+                easyModeScene = new EasyModeScene(g);
+                Game.Components.Add(easyModeScene);
+            }
+            else if (hardModeScene != null)
+            {
+                hardModeScene = new HardModeScene(g);
+                Game.Components.Add(hardModeScene);
+            }
             if (this.Enabled)
             {
                 HandleInput();

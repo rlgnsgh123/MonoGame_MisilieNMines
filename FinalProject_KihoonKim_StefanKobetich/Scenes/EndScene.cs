@@ -22,16 +22,20 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Kaboom kaboom;
         private SoundEffect kaboomSound;
         private int kaboomMoveSize = 50;
+        Game1 g;
+
         public EndScene(Game game, int score, Vector2 location) : base(game)
         {
+            g = (Game1) game;
+
             kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
             kaboomSound.Play();
 
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
             _spriteFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             finalScore = score;
-            startScene = new StartScene(game);
-            game.Components.Add(startScene);
+
+            startScene = g.StartScene;
 
             kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
             kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
@@ -83,7 +87,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
             if (ks.IsKeyDown(Keys.Escape))
             {
-                this.hide();
+                Game.Components.Remove(this);
                 startScene.show();
 
             }
