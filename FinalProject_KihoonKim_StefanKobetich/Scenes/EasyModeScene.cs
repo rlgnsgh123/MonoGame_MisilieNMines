@@ -55,7 +55,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private const int coinAmount = 30;
         private float scoreUpdateInterval = 0.05f;
         private float scoreTimer = 0.0f;
-        
+
         public bool isGameDone = false;
         public bool passed = false;
 
@@ -217,7 +217,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             {
                 if (coin.Enabled == false)
                 {
-                    coinListCount+=2;
+                    coinListCount += 2;
                 }
             }
             coinScore = coinListCount;
@@ -225,9 +225,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             int x = airplaneBox.X;
             int y = airplaneBox.Y;
             isGameDone = true;
-            
+
             // 게임이 종료되면 EndScene을 보여줄 수 있습니다.
-            EndScene endScene = new EndScene(g, timeScore,coinScore,"Easy Mode", new Vector2(x, y), passed);
+            EndScene endScene = new EndScene(g, timeScore, coinScore, "Easy Mode", new Vector2(x, y), passed);
             Game.Components.Add(endScene);
             endScene.show();
             Game.Components.Remove(this);
