@@ -21,6 +21,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private StartScene startScene;
         private HelpScene helpScene;
         private PlayMenuScene playMenuScene;
+        private CreditsScene creditsScene;
         private HighScoreScene highScoreScene;
         
         private string playerName;
@@ -73,6 +74,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
             playMenuScene = new PlayMenuScene(this);
             this.Components.Add(playMenuScene);
 
+            creditsScene = new CreditsScene(this);
+            this.Components.Add(creditsScene);
 
             startScene.show();
 
@@ -103,6 +106,12 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     helpScene.show();
 
                 }
+                else if (selectedIndex == 3 && ks.IsKeyDown(Keys.Enter))
+                {
+                    startScene.hide();
+                    creditsScene.show();
+
+                }
                 else if (selectedIndex == 4 && ks.IsKeyDown(Keys.Enter))
                 {
                     Exit();
@@ -123,6 +132,15 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 if (ks.IsKeyDown(Keys.Escape))
                 {
                     helpScene.hide();
+                    startScene.show();
+                }
+
+            }
+            if (creditsScene.Enabled)
+            {
+                if (ks.IsKeyDown(Keys.Escape))
+                {
+                    creditsScene.hide();
                     startScene.show();
                 }
 

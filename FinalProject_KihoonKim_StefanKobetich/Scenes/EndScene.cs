@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -31,6 +30,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Rectangle retryRect;
         private Rectangle exitRect;
         private string bonusMsg = string.Empty;
+        private bool passed;
         Game1 g;
 
         public EndScene(Game game, int score, Vector2 location, bool passed) : base(game)
@@ -43,30 +43,31 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
             kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
             g = (Game1)game;
+            this.passed = passed;
 
-            startScene = g.StartScene;
-                
+
             if (passed == false)
             {
+                startScene = g.StartScene;
                 kaboomSound.Play();
                 kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
                 this.Components.Add(kaboom);
                 kaboom.Show();
                 location.Y = location.Y + kaboomMoveSize;
-                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
                 this.Components.Add(kaboom);
                 kaboom.Show();
                 location.Y = location.Y - (kaboomMoveSize * 2);
-                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
                 this.Components.Add(kaboom);
                 kaboom.Show();
                 location.X = location.X + kaboomMoveSize;
                 location.Y = location.Y + kaboomMoveSize;
-                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
                 this.Components.Add(kaboom);
                 kaboom.Show();
                 location.X = location.X - (kaboomMoveSize * 2);
-                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, (location), 5);
+                kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
                 this.Components.Add(kaboom);
                 kaboom.Show();
             }

@@ -15,6 +15,7 @@
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/coin.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/credits.jpg</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/floatingMineBomb.png</File>
+    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/heli.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/Help.jpg</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/kaboom.png</File>
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/mineBombGroundHigh.png</File>
@@ -22,6 +23,7 @@
     <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/smallMissile.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

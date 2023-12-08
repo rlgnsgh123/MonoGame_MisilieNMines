@@ -17,9 +17,12 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private List<Missile> missileList;
         private List<Coin> coinList;
         private List<MineBomb> mineBombList;
+        private List<Helli> helliList;
         private Airplane airplane;
         private MineBomb mineBomb;
         private GameScene gameScene;
+        private Helli helli;
+        private bool seccondConstructor = false;
 
         private int numberGetCoin = 0;
 
@@ -33,9 +36,23 @@ namespace FinalProject_KihoonKim_StefanKobetich
             this.mineBombList = mineBombList;
             this.gameScene = gameScene;
         }
+        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Helli> helliList, List<Coin> coinList, MineBomb mineBomb, Airplane airplane, GameScene gameScene, Helli helli) : base(game)
+        {
+            this.helli = helli;
+            this.helliList = helliList;
+            this.coinList = coinList;
+            this.game = game;
+            this.airplane = airplane;
+            this.mineBomb = mineBomb;
+            this.missileList = missileList;
+            this.mineBombList = mineBombList;
+            this.gameScene = gameScene;
+            seccondConstructor = true;
+        }
 
         public override void Update(GameTime gameTime)
         {
+            Rectangle helliRect = new Rectangle();
             Rectangle missileRect = new Rectangle();
             Rectangle bombRect = new Rectangle();
             Rectangle coinRect = new Rectangle();
@@ -75,6 +92,22 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     break;
                 }
             }
+            if (seccondConstructor == true)
+            {
+                foreach (Helli h in helliList)
+                {
+                    helliRect = h.getBounds();
+                    if (airplaneRect.Intersects(helliRect))
+                    {
+                        // Put code for what happens on an inersection here
+                        helli.Visible = false;
+                        helli.Enabled = false;
+                        HandleCollision();
+                        break;
+                    }
+                }
+            }
+
             base.Update(gameTime);
         }
         private void HandleCollision()

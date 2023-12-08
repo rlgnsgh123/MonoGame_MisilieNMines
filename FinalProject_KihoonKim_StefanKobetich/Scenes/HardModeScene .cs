@@ -31,7 +31,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Texture2D bombTex;
         private Texture2D airplaneTex;
         private Texture2D airplaneTex1;
+        private Texture2D heliTex;
         private Missile missile;
+        private Helli helli;
         private MineBomb mineBomb;
         private Coin coin;
         private Airplane airplane;
@@ -42,17 +44,18 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private List<Missile> missileList;
         private List<MineBomb> mineBombList;
         private List<Coin> coinList;
+        private List<Helli> helliList;
         private int coinListCount = 0;
         private int coinSoundCount = 0;
         private int score = 0;
         private int coinPos = 800;
-        private int airMinePos = 800;
-        private int groundMinePos = 700;
-        private int missilePos = 1500;
+        private int airMinePos = 650;
+        private int groundMinePos = 650;
+        private int missilePos = 1150;
         private int airMineCount = 24;
-        private int groundMineCount = 20;
-        private int missileCount = 15;
-        private const int coinAmount = 30;
+        private int groundMineCount = 35;
+        private int missileCount = 27;
+        private const int coinAmount = 50;
         private float scoreUpdateInterval = 0.05f;
         private float scoreTimer = 0.0f;
         private bool passed = false;
@@ -71,7 +74,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             // Addition of airplane
             //Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
             Texture2D airplaneTex = game.Content.Load<Texture2D>("images/Airplane");
-            Vector2 airplaneInitPos = new Vector2(70, 200);
+            Vector2 airplaneInitPos = new Vector2(200, 200);
             Vector2 airplaneXSpeed = new Vector2(6, 0);
             Vector2 airplaneYSpeed = new Vector2(0, 6);
 
@@ -83,8 +86,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             // Addition of Missile
             for (int i = 0; i < missileCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(425, 800);
-                int randomPosHigh = RandomNumberGenerator.GetInt32(25, 350);
+                int randomPosAway = RandomNumberGenerator.GetInt32(375, 700);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(20, 400);
                 int randomSpeed = RandomNumberGenerator.GetInt32(-5, -2);
 
                 missilePos = missilePos + randomPosAway;
@@ -104,8 +107,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             // Addition of MineBomb air
             for (int i = 0; i < airMineCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(250, 400);
-                int randomPosHigh = RandomNumberGenerator.GetInt32(5, 180);
+                int randomPosAway = RandomNumberGenerator.GetInt32(250, 375);
+                int randomPosHigh = RandomNumberGenerator.GetInt32(5, 200);
 
                 airMinePos = airMinePos + randomPosAway;
                 airBombTex = game.Content.Load<Texture2D>("images/floatingMineBomb");
@@ -130,7 +133,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             // Addition of MineBomb ground
             for (int i = 0; i < groundMineCount; i++)
             {
-                int randomPosAway = RandomNumberGenerator.GetInt32(325, 450);
+                int randomPosAway = RandomNumberGenerator.GetInt32(275, 400);
                 int randomPosHigh = RandomNumberGenerator.GetInt32(210, 345);
 
                 groundMinePos = groundMinePos + randomPosAway;
@@ -143,8 +146,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             missileList = this.Components.OfType<Missile>().ToList();
             mineBombList = this.Components.OfType<MineBomb>().ToList();
             coinList = this.Components.OfType<Coin>().ToList();
+            helliList = this.Components.OfType<Helli>().ToList();
 
-            _collisionManager = new CollisionManager(g, missileList, mineBombList, coinList, mineBomb, airplane, this); // 수정된 부분
+            _collisionManager = new CollisionManager(g, missileList, mineBombList, helliList, coinList, mineBomb, airplane, this, helli); // 수정된 부분
             this.Components.Add(_collisionManager);
         }
 
@@ -183,6 +187,16 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 coinCollectSound.Play();
             }
             coinListCount = 0;
+
+            double time = gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (time == 0.02)
+            {
+                heliTex = g.Content.Load<Texture2D>("images/heli");
+                helli = new Helli(g, _spriteBatch, heliTex, new Vector2(50, 75), 5);
+                this.Components.Add(helli);
+                helli.Show();
+            }
 
             base.Update(gameTime);
         }

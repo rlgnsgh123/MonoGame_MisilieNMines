@@ -12,9 +12,9 @@ using System.Reflection.Metadata;
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
     /// <summary>
-    /// Help scene to display help and game functions
+    /// Help scene to display the credits
     /// </summary>
-    public class HelpScene : GameScene
+    public class CreditsScene : GameScene
     {
         private Texture2D tex;
         private SpriteBatch sb;
@@ -23,12 +23,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Game g;
 
         // HelpScene constructor
-        public HelpScene(Game game) : base(game)
+        public CreditsScene(Game game) : base(game)
         {
             g = game;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            image = game.Content.Load<Texture2D>("help");
+            image = game.Content.Load<Texture2D>("credits");
 
         }
 
