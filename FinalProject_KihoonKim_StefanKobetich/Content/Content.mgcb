@@ -49,12 +49,6 @@
 /processorParam:Quality=Best
 /build:audio/Nio.mp3
 
-#begin audio/Speedy Whoosh Sound Effect.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:audio/Speedy Whoosh Sound Effect.wav;audio/whoosh.wav
-
 #begin fonts/NormalFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -112,6 +106,18 @@
 /processorParam:TextureFormat=Color
 /build:images/coin.png
 
+#begin images/credits.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/credits.jpg
+
 #begin images/floatingMineBomb.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -123,6 +129,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:images/floatingMineBomb.png
+
+#begin images/heli.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:images/heli.png
 
 #begin images/Help.jpg
 /importer:TextureImporter

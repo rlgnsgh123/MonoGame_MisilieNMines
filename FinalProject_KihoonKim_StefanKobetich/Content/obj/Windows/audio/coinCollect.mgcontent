@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/coinCollect.wav</SourceFile>
   <SourceTime>2023-12-07T13:54:44.1827517-05:00</SourceTime>
   <DestFile>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/bin/Windows/audio/coinCollect.xnb</DestFile>
-  <DestTime>2023-12-07T14:52:38.2624029-05:00</DestTime>
+  <DestTime>2023-12-07T20:16:32.8673667-05:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>
