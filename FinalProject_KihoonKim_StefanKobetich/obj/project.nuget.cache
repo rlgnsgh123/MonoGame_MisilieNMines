@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aGojWrNUfLaff/YOWfEjl25FpnvVzzdJ69w5FD4U+jXU6HwCt1Hq86l6MFgsWTXscL7t8mxCvys/pZiUBgTv2A==",
+  "dgSpecHash": "nPidjC/xKVDry88y79Bj+M81L78byFUvp8zAfkxlbfaK1lwF/Qe0cDDrNnSZPC/bBIqtjiaN+Q5fP7XYCPRcpA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
+  "projectFilePath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\Missiles 'n Mines Escape.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stefa\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\stefa\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",

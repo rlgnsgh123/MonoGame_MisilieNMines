@@ -7530,9 +7530,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
-      "projectName": "FinalProject_KihoonKim_StefanKobetich",
-      "projectPath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
+      "projectUniqueName": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\Missiles 'n Mines Escape.csproj",
+      "projectName": "Missiles 'n Mines Escape",
+      "projectPath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\Missiles 'n Mines Escape.csproj",
       "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\obj\\",
       "projectStyle": "PackageReference",
