@@ -27,6 +27,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         private Game g;
 
+        // Constructor for kaboom, allows for a somewhat customizable explosion(kaboom) 
         public Kaboom(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, int delay) : base(game)
         {
             this.g = game;
@@ -39,6 +40,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             Hide();
         }
 
+        // Method that preps the spritelocation for the missile
         private void CreateFrames()
         {
             frames = new List<Rectangle>();
@@ -54,17 +56,21 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             }
         }
 
+        // Hides kaboom
         public void Hide()
         {
             this.Enabled = false;
             this.Visible = false;
         }
+
+        // Shows kaboom
         public void Show()
         {
             this.Enabled = true;
             this.Visible = true;
         }
 
+        // Handles any of the updating and animation
         public override void Update(GameTime gameTime)
         {
             delayCounter++;
@@ -84,6 +90,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             base.Update(gameTime);
         }
 
+        // Draws the kaboom into frame
         public override void Draw(GameTime gameTime)
         {
             if (frameIndex >= 0)

@@ -32,7 +32,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
         }
 
-
+        // Checks to see if the user wants to exit the help scene
         public override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))

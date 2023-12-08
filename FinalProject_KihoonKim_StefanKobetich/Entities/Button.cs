@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
+    /// <summary>
+    /// Button Class that allows the use of buttons in our game. Used for the user to choose
+    /// </summary>
     public class Button
     {
         private Vector2 position;
@@ -23,6 +26,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             this.graphicsDevice = graphicsDevice;
         }
 
+        // Draws the button
         public void Draw(SpriteBatch spriteBatch)
         {
             // Draw button background
@@ -36,18 +40,21 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             spriteBatch.DrawString(font, text, textPosition, Color.White);
         }
 
+        // Method to handle if the button is clicked
         public bool IsClicked(Point mousePosition)
         {
             Rectangle buttonRectangle = new Rectangle((int)position.X, (int)position.Y, 200, 50);
             return buttonRectangle.Contains(mousePosition);
         }
 
+        // Method to handle if mouse is over the button
         public bool IsMouseOver()
         {
             Rectangle buttonRectangle = new Rectangle((int)position.X, (int)position.Y, 200, 50);
             return buttonRectangle.Contains(Mouse.GetState().Position);
         }
 
+        // The texture of the button
         private Texture2D GetTexture(Color color)
         {
             Texture2D texture = new Texture2D(graphicsDevice, 1, 1);

@@ -70,7 +70,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             }
         }
 
-
+        // Handles any of the updating and animation and 
         public override void Update(GameTime gameTime)
         {
             KeyboardState ks = Keyboard.GetState();
@@ -135,6 +135,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             base.Update(gameTime);
         }
 
+        // Draws the bullet into frame with all the class variables
         public override void Draw(GameTime gameTime)
         {
 
@@ -147,6 +148,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             }
             base.Draw(gameTime);
         }
+
+        // Method to get the boundry / hitbox of the bullet
         public Rectangle getBounds()
         {
             return new Rectangle((int)position.X, (int)position.Y - HITBOXSHRINK * 2, (int)dimension.X - HITBOXSHRINK * 2, (int)dimension.Y);

@@ -68,6 +68,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
         }
 
+        // Draws the play menu to the user
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
@@ -103,6 +104,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
 
         }
+        
+        // Method for playing the game music when loading into a level
         public void PlayMusic()
         {
             Song backgroundMusic = g.Content.Load<Song>("audio/daftyMusic");

@@ -13,6 +13,9 @@ using FinalPlayerNameInput;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
+    /// <summary>
+    /// EndScene class that is used when the player etheir wins or dies. Dislpays the users game stats and allows replay
+    /// </summary>
     public class EndScene : GameScene
     {
         private static bool isFormShown = false;
@@ -39,6 +42,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private bool passed;
         Game1 g;
 
+        // Constructor to build the end scene. Notice passed for indicating if they acually won the level or not
         public EndScene(Game game, int timeScore, int coinScore, string mode, Vector2 location, bool passed) : base(game)
         {
             playerInfo = new PlayerInfo();
@@ -93,6 +97,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             hide();
         }
 
+        // Draws the endScene to the user
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
@@ -105,6 +110,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             //base.Draw(gameTime);
         }
 
+        // If the endscene is enabled, call the handle input class
         public override void Update(GameTime gameTime)
         {
             if (this.Enabled)
@@ -114,8 +120,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
         }
 
-
-
+        // Method that hadles the user input to save a score
         private void HandleInput()
         {
             KeyboardState ks = Keyboard.GetState();
@@ -166,6 +171,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 isSubmitName = false;
             }
         }
+
+        // Method to play music, here to reduce redundancy
         private void PlayMusic()
         {
             Song backgroundMusic = g.Content.Load<Song>("audio/Nio");

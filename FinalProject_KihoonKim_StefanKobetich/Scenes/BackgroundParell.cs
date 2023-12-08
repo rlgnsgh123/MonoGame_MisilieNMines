@@ -21,6 +21,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Desistination 내가 
         private Rectangle srcRect;
         private Vector2 speed;
+
+        // Constructor to make the background
         public BackgroundParell(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, Rectangle srcRect, Vector2 speed) : base(game)
         {
             this.sb = sb;
@@ -33,6 +35,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 
         }
 
+        // Updates the speed and position of the animation
         public override void Update(GameTime gameTime)
         {
             position1 -= speed;
@@ -50,6 +53,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             base.Update(gameTime);
         }
 
+        // Draws the background to the user
         public override void Draw(GameTime gameTime)
         {
             sb.Begin();

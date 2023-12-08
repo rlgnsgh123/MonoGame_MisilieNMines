@@ -12,9 +12,10 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     /// </summary>
     public class HighScoreScene : GameScene
     {
-        // Constructor for highscore
+        // Default constructor for highscore
         public HighScoreScene(Game game) : base(game)
         {
+
         }
     }
 }
