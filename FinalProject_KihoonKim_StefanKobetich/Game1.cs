@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System;
 using System.Linq;
 
 namespace FinalProject_KihoonKim_StefanKobetich
@@ -85,7 +86,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
         // Update method for when the user interacts with the menu
         protected override void Update(GameTime gameTime)
         {
-
             // TODO: Add your update logic here
 
             int selectedIndex = 0;
