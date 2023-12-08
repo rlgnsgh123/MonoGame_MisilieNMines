@@ -1,4 +1,5 @@
 ﻿//using FinalProject_KihoonKim_StefanKobetich.Entities;
+//using SharpDX.Direct3D9;
 //using System;
 //using System.Collections.Generic;
 //using System.Globalization;
@@ -24,68 +25,74 @@
 
 //        public static List<PlayerInfo> LoadGameScores()
 //        {
-//        //    List<PlayerInfo> highScores = new List<PlayerInfo>();
+//            List<PlayerInfo> highScores = new List<PlayerInfo>();
+//            string tempPlayerInfo;
+//            if (File.Exists(logsPath))
+//            {
+//                string[] lines = File.ReadAllLines(logsPath);
 
-//        //    if (File.Exists(logsPath))
-//        //    {
-//        //        string[] lines = File.ReadAllLines(logsPath);
+//                foreach (string line in lines)
+//                {
+//                    string[] parts = line.Split(',');
+//                    if (parts.Length == 3 && int.TryParse(parts[1], out int score))
+//                    {
+//                        HighScoreEntry entry = new HighScoreEntry
+//                        {
+//                            PlayerName = parts[0],
+//                            Score = score,
+//                            GameMode = parts[2]
+//                        };
+//                        highScores.Add(entry);
+//                    }
+//                }
+//            }
 
-//        //        foreach (string line in lines)
-//        //        {
-//        //            string[] parts = line.Split(',');
-//        //            if (parts.Length == 3 && int.TryParse(parts[1], out int score))
-//        //            {
-//        //                HighScoreEntry entry = new HighScoreEntry
-//        //                {
-//        //                    PlayerName = parts[0],
-//        //                    Score = score,
-//        //                    GameMode = parts[2]
-//        //                };
-//        //                highScores.Add(entry);
-//        //            }
-//        //        }
-//        //    }
+//            using (StreamReader sr = new StreamReader(logsPath))
+//            {
+//                // tempInfor is like just One line
+//                while ((tempPlayerInfo = sr.ReadLine()) != null)
+//                {
+//                    string[] eachScore = tempPlayerInfo.Split(',');
+//                    PlayerInfo playerInfo = new PlayerInfo
+//                    {
+//                        PlayerName =eachScore[0],
+//                        PlayerScore = (eachScore[1])
+//                    }
+//                    Patient patient = new Patient();
+//                    // split according to "|"
+//                    String[] eachInfo = tempPlayerInfo.Split(',');
 
-//        //    using (StreamReader sr = new StreamReader(logsPath))
-//        //    {
-//        //        // tempInfor is like just One line
-//        //        while ((tempInfo = sr.ReadLine()) != null)
-//        //        {
-//        //            Patient patient = new Patient();
-//        //            // split according to "|"
-//        //            String[] eachInfo = tempInfo.Split('|');
+//                    // id
+//                    patient.id = Convert.ToInt32(eachInfo[0]);
+//                    patient.name = eachInfo[1];
+//                    // name
+//                    DateTime parsedDate = DateTime.Parse(eachInfo[2]);
+//                    patient.dOB = parsedDate;
+//                    //problem
+//                    patient.problem = eachInfo[3];
+//                    // note
+//                    patient.clinicalNote = eachInfo[4];
 
-//        //            // id
-//        //            patient.id = Convert.ToInt32(eachInfo[0]);
-//        //            patient.name = eachInfo[1];
-//        //            // name
-//        //            DateTime parsedDate = DateTime.Parse(eachInfo[2]);
-//        //            patient.dOB = parsedDate;
-//        //            //problem
-//        //            patient.problem = eachInfo[3];
-//        //            // note
-//        //            patient.clinicalNote = eachInfo[4];
-
-//        //            patients.Add(patient);
-//        //        }
-//        //    }
-//        //    return patients;
-//        //}
-
-//        //    return highScores;
+//                    patients.Add(patient);
+//                }
+//            }
+//            return patients;
 //        }
 
-//        public static void SaveHighScores(List<HighScoreEntry> highScores)
+//                return highScores;
+//        }
+
+//    public static void SaveHighScores(List<HighScoreEntry> highScores)
+//    {
+//        try
 //        {
-//            try
-//            {
-//                List<string> lines = highScores.Select(entry => $"{entry.PlayerName},{entry.Score},{entry.GameMode}").ToList();
-//                File.WriteAllLines(FileName, lines);
-//            }
-//            catch (Exception ex)
-//            {
-//                Console.WriteLine($"하이스코어 저장 오류: {ex.Message}");
-//            }
+//            List<string> lines = highScores.Select(entry => $"{entry.PlayerName},{entry.Score},{entry.GameMode}").ToList();
+//            File.WriteAllLines(FileName, lines);
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine($"하이스코어 저장 오류: {ex.Message}");
 //        }
 //    }
+//}
 //}
