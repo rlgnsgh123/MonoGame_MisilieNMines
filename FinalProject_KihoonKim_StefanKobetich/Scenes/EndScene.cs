@@ -21,28 +21,37 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private SpriteBatch _spriteBatch;
         private SpriteFont _spriteFont;
         StartScene startScene;
+
+        private PlayerInfo playerInfo;
         private int finalScore;
+        private int timeScore =0;
+        private int coinScore =0;
+        private int bonusScore = 0;
+
         private Texture2D kaboomTex;
         private Kaboom kaboom;
         private SoundEffect kaboomSound;
         private int kaboomMoveSize = 50;
-        private int bonusAmount = 0;
+
         private Rectangle retryRect;
         private Rectangle exitRect;
         private string bonusMsg = string.Empty;
         private bool passed;
         Game1 g;
 
-        public EndScene(Game game, int score, Vector2 location, bool passed) : base(game)
+        public EndScene(Game game, int timeScore, int coinScore ,string mode,Vector2 location, bool passed) : base(game)
         {
+             playerInfo = new PlayerInfo();
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
             _spriteFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
-            finalScore = score;
+            this.timeScore = timeScore;
+            this.coinScore = coinScore;
+            playerInfo.GameMode = mode;
             kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
             kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
             g = (Game1)game;
             this.passed = passed;
-
+            
 
             if (passed == false)
             {
@@ -72,11 +81,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             else
             {
                 bonusMsg = "+200 Bonus!";
-                bonusAmount = 200;
+                bonusScore = 200;
             }
 
+            finalScore = timeScore + coinScore + bonusScore;
             //
-            
+
             //
             retryRect = new Rectangle(100, 400, 200, 50);
             exitRect = new Rectangle(400, 400, 200, 50);
@@ -86,7 +96,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_spriteFont, $"Game Over\nSurvival Score: {finalScore}\nCoins Collected: {PlayerInfo.PlayerCoinScore}\nFinal Score: {finalScore + PlayerInfo.PlayerCoinScore + bonusAmount} {bonusMsg}", new Vector2(100, 100), Color.White);
+            _spriteBatch.DrawString(_spriteFont, $"Game Over\nSurvival Score: {timeScore}\nCoins Collected: {coinScore}\nFinal Score: {finalScore} {bonusMsg}", new Vector2(100, 100), Color.White);
             _spriteBatch.DrawString(_spriteFont, "Retry", new Vector2(retryRect.X, retryRect.Y), Color.White);
             _spriteBatch.DrawString(_spriteFont, "Exit", new Vector2(exitRect.X, exitRect.Y), Color.White);
             
@@ -115,8 +125,20 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             {
                 finalPlayerNameInput = new Form1();
                 isFormShown = true;
-                finalPlayerNameInput.ShowDialog();
-                isSubmitName = true;
+                
+                do
+                {
+                    finalPlayerNameInput.ShowDialog();
+                    string tempName = finalPlayerNameInput.UserName;
+                    if (tempName != null)
+                    {
+                        playerInfo.PlayerName = tempName;
+                        isSubmitName = true;
+                        break;
+                    }
+                } while (true);
+                
+                
             }
             if (retryRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed && isSubmitName ==true)
             {

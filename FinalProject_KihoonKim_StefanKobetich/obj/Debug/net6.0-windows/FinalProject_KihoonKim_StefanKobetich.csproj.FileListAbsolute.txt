@@ -115,3 +115,5 @@ C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_Stef
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\coinCollect.xnb
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\coinCollect.xnb
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\Help.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\credits.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\heli.xnb

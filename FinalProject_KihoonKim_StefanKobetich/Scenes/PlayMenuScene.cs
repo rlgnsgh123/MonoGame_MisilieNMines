@@ -55,14 +55,11 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             {
                 easyModeScene = new EasyModeScene(g);
                 Game.Components.Add(easyModeScene);
-                
-                PlayerInfo.PlayerCoinScore = 0;
             }
             else if (hardModeScene != null)
             {
                 hardModeScene = new HardModeScene(g);
                 Game.Components.Add(hardModeScene);
-                PlayerInfo.PlayerCoinScore = 0;
             }
             if (this.Enabled)
             {

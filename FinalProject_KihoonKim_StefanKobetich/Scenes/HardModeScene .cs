@@ -1,6 +1,5 @@
 ﻿using FinalProject_KihoonKim_StefanKobetich.Entities;
 using FinalProject_KihoonKim_StefanKobetich.Shared;
-using FinalProject_KihoonKim_StefanKobetich.Sprites;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -40,14 +39,14 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private SoundEffect nearMiss;
         private SoundEffect coinCollectSound;
         private EndScene endScene;
-        private List<AirplaneSprite> _airplaneSprites;
         private List<Missile> missileList;
         private List<MineBomb> mineBombList;
         private List<Coin> coinList;
         private List<Helli> helliList;
         private int coinListCount = 0;
         private int coinSoundCount = 0;
-        private int score = 0;
+        private int timeScore = 0;
+        private int coinScore = 0;
         private int coinPos = 800;
         private int airMinePos = 650;
         private int groundMinePos = 650;
@@ -58,6 +57,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private const int coinAmount = 50;
         private float scoreUpdateInterval = 0.05f;
         private float scoreTimer = 0.0f;
+       
         private bool passed = false;
         public bool isGameDone = false;
 
@@ -167,7 +167,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 EndGame();
                 return;
             }
-            if (score == 1500)
+            if (timeScore == 2500)
             {
                 passed = true;
                 EndGame();
@@ -208,7 +208,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             if (scoreTimer >= scoreUpdateInterval)
             {
                 // 경과 시간 누적
-                score += 1;
+                timeScore += 1;
 
                 // initialize scoreTimertimer
                 scoreTimer = 0.0f;
@@ -220,7 +220,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         {
             spriteFont = g.Content.Load<SpriteFont>("fonts/NormalFont");
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(spriteFont, "Score: " + score, new Vector2(10, 10), Color.White);
+            _spriteBatch.DrawString(spriteFont, "Score: " + timeScore, new Vector2(10, 10), Color.White);
             _spriteBatch.End();
         }
 
@@ -234,13 +234,13 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                     coinListCount++;
                 }
             }
-            PlayerInfo.PlayerCoinScore = coinListCount;
+            coinScore = coinListCount;
             Rectangle airplaneBox = airplane.getBounds();
             int x = airplaneBox.X;
             int y = airplaneBox.Y;
             isGameDone = true;
-            // 게임이 종료되면 EndScene을 보여줄 수 있습니다.
-            EndScene endScene = new EndScene(g, score, new Vector2(x, y), passed);
+
+            EndScene endScene = new EndScene(g, timeScore, coinScore, "Hard Mode", new Vector2(x, y), passed);
             Game.Components.Add(endScene);
             endScene.show();
             Game.Components.Remove(this);

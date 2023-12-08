@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
-    public static class PlayerInfo
+    public class PlayerInfo
     {
-        public static string PlayerName { get; set; }
-        public static int PlayerScore { get; set; }
-        public static string GameMode { get; set; }
-        public static int PlayerCoinScore { get; set; }
+        private string playerName;
+        private int playerScore;
+        private string gameMode;
 
-        // 다른 초기화 로직이나 메서드가 필요한 경우 추가할 수 있습니다. (If you need other initialization logic or methods, you can add them.)
+        public string PlayerName { get => playerName; set => playerName = value; }
+        public int PlayerScore { get => playerScore; set => playerScore = value; }
+        public string GameMode { get => gameMode; set => gameMode = value; }
 
-        static PlayerInfo()
+        public PlayerInfo() 
         {
-            // 초기화 로직을 여기에 추가할 수 있습니다.
-            PlayerName = "";
-            PlayerScore = 0;
-            GameMode = "";
-            PlayerCoinScore = 0;
+            playerName = "";
+            playerScore = 0;
+            gameMode = "";
         }
     }
 
