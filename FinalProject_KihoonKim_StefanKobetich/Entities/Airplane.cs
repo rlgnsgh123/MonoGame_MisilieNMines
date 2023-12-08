@@ -11,6 +11,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
+    /// <summary>
+    /// Airplane Class that allows the creation of a Airplane and handles all Airplane logic
+    /// </summary>
     public class Airplane : DrawableGameComponent
     {
 
@@ -35,6 +38,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
 
         public Vector2 Position { get; set; }
 
+        // Constructor for Airplane, allows for a somewhat customizable Airplane
         public Airplane(Game game, SpriteBatch sb, Texture2D tex, Vector2 position, Vector2 xSpeed, Vector2 ySpeed, Vector2 stage, int delay) : base(game)
         {
             this.sb = sb;
@@ -50,6 +54,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Entities
             CreateFrames();
         }
 
+        // Method that preps the spritelocation for the Airplane
         private void CreateFrames()
         {
             frames = new List<Rectangle>();
