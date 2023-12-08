@@ -231,7 +231,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             {
                 if (coin.Enabled == false)
                 {
-                    coinListCount++;
+                    coinListCount+=2;
                 }
             }
             coinScore = coinListCount;
