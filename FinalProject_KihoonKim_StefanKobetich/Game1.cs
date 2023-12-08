@@ -72,6 +72,9 @@ namespace FinalProject_KihoonKim_StefanKobetich
             helpScene = new HelpScene(this);
             this.Components.Add(helpScene);
 
+            highScoreScene = new HighScoreScene(this);
+            this.Components.Add(highScoreScene);
+
             playMenuScene = new PlayMenuScene(this);
             this.Components.Add(playMenuScene);
 
@@ -106,6 +109,12 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     helpScene.show();
 
                 }
+                else if (selectedIndex == 2 && ks.IsKeyDown(Keys.Enter))
+                {
+                    startScene.hide();
+                    highScoreScene.show();
+
+                }
                 else if (selectedIndex == 3 && ks.IsKeyDown(Keys.Enter))
                 {
                     startScene.hide();
@@ -122,6 +131,15 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 if (ks.IsKeyDown(Keys.Escape))
                 {
                     playMenuScene.hide();
+                    startScene.show();
+                }
+
+            }
+            if (highScoreScene.Enabled)
+            {
+                if (ks.IsKeyDown(Keys.Escape))
+                {
+                    highScoreScene.hide();
                     startScene.show();
                 }
 

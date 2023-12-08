@@ -10,6 +10,7 @@ using FinalProject_KihoonKim_StefanKobetich.Entities;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 using FinalPlayerNameInput;
+using FinalProject_KihoonKim_StefanKobetich.Manager;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
@@ -114,7 +115,19 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
         }
 
+        private void SavePlayerInfo()
+        {
 
+            PlayerInfo currentPlayerInfo = new PlayerInfo
+            {
+                PlayerName = playerInfo.PlayerName,
+                PlayerScore = finalScore,
+                GameMode = playerInfo.GameMode
+            };
+
+            SavingScoreManager.MakingFile();
+            SavingScoreManager.AddNewPlayerInfo(currentPlayerInfo);
+        }
 
         private void HandleInput()
         {
@@ -147,6 +160,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 g.PlayMenuScene.show();
                 isFormShown = false;
                 isSubmitName = false;
+                SavePlayerInfo();
             }
 
             if (exitRect.Contains(mouseState.Position) && mouseState.LeftButton == ButtonState.Pressed && isSubmitName == true)
@@ -156,6 +170,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 startScene.show();
                 isFormShown = false;
                 isSubmitName = false;
+                SavePlayerInfo();
             }
 
             if (ks.IsKeyDown(Keys.Escape) && isSubmitName == true)
@@ -164,6 +179,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 startScene.show();
                 isFormShown = false;
                 isSubmitName = false;
+                SavePlayerInfo();
             }
         }
         private void PlayMusic()

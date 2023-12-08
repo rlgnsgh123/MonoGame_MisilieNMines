@@ -1,0 +1,2 @@
+kihoon,56,Easy Mode
+ffcc,72,Easy Mode
