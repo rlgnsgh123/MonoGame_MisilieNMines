@@ -55,32 +55,19 @@
 //                    string[] eachScore = tempPlayerInfo.Split(',');
 //                    PlayerInfo playerInfo = new PlayerInfo
 //                    {
-//                        PlayerName =eachScore[0],
-//                        PlayerScore = (eachScore[1])
-//                    }
-//                    Patient patient = new Patient();
-//                    // split according to "|"
-//                    String[] eachInfo = tempPlayerInfo.Split(',');
+//                        PlayerName = eachScore[0],
+//                        PlayerScore = int.Parse(eachScore[1]),
+//                        GameMode = eachScore[2]
 
-//                    // id
-//                    patient.id = Convert.ToInt32(eachInfo[0]);
-//                    patient.name = eachInfo[1];
-//                    // name
-//                    DateTime parsedDate = DateTime.Parse(eachInfo[2]);
-//                    patient.dOB = parsedDate;
-//                    //problem
-//                    patient.problem = eachInfo[3];
-//                    // note
-//                    patient.clinicalNote = eachInfo[4];
-
-//                    patients.Add(patient);
+//                    };
+//                    highScores.Add(eachScore);
 //                }
 //            }
-//            return patients;
+//            return highScores;
 //        }
 
 //                return highScores;
-//        }
+//        highScores
 
 //    public static void SaveHighScores(List<HighScoreEntry> highScores)
 //    {

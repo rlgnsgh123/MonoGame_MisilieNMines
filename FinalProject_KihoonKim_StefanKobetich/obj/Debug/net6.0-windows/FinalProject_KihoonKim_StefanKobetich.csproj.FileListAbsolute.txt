@@ -106,8 +106,6 @@ C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProje
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\daftyMusic.xnb
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\coin.xnb
 C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\FinalPlayerNameInput.dll
-C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\FinalPlayerNameInput.pdb
-C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\FinalPlayerNameInput.dll.config
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\daftyMusic.wma
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\daftyMusic.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\coin.xnb
@@ -116,3 +114,8 @@ C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_Stef
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\credits.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\heli.xnb
 C:\Users\stefa\Documents\GitHub\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\bullet.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\audio\coinCollect.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\bullet.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\credits.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\heli.xnb
+C:\Level3-Prog2370-Game Programming\FinalProject\FinalGameProgramming\FinalProject_KihoonKim_StefanKobetich\bin\Debug\net6.0-windows\Content\images\Help.xnb
