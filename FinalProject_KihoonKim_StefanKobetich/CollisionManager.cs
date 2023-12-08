@@ -88,8 +88,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             else if (gameScene is HardModeScene)
             {
                 HardModeScene hardModeScene = (HardModeScene)gameScene;
-                // Hard Mode에서의 처리 추가
-                // 예: hardModeScene.EndGame();
+                hardModeScene.EndGame();
             }
 
 

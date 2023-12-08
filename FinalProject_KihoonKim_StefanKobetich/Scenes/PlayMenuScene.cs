@@ -94,19 +94,24 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             {
                 this.hide();
                 easyModeScene.show();
+                PlayMusic();
 
-                Song backgroundMusic = g.Content.Load<Song>("audio/daftyMusic");
-                MediaPlayer.IsRepeating = true;
-                MediaPlayer.Play(backgroundMusic);
             }
             else if (selectedIndex == 1 && ks.IsKeyDown(Keys.Space))
             {
                 this.hide();
                 hardModeScene.show();
+                PlayMusic();
+
             }
 
         }
-
+        public void PlayMusic()
+        {
+            Song backgroundMusic = g.Content.Load<Song>("audio/daftyMusic");
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(backgroundMusic);
+        }
     }
 }
 

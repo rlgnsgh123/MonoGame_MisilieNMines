@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using FinalProject_KihoonKim_StefanKobetich.Entities;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
@@ -41,16 +40,15 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
             _spriteFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
             finalScore = score;
+            kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
+            kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
             g = (Game1)game;
 
             startScene = g.StartScene;
                 
             if (passed == false)
             {
-                kaboomSound = game.Content.Load<SoundEffect>("audio/kaboomSound");
                 kaboomSound.Play();
-
-                kaboomTex = game.Content.Load<Texture2D>("images/kaboom");
                 kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
                 this.Components.Add(kaboom);
                 kaboom.Show();
