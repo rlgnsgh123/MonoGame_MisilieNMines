@@ -18,8 +18,10 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private List<Coin> coinList;
         private List<MineBomb> mineBombList;
         private List<Helli> helliList;
+        private List<Bullet> bulletList;
         private Airplane airplane;
         private MineBomb mineBomb;
+        private Bullet bullet;
         private GameScene gameScene;
         private Helli helli;
         private bool seccondConstructor = false;
@@ -36,7 +38,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             this.mineBombList = mineBombList;
             this.gameScene = gameScene;
         }
-        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Helli> helliList, List<Coin> coinList, MineBomb mineBomb, Airplane airplane, GameScene gameScene, Helli helli) : base(game)
+        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Helli> helliList, List<Coin> coinList, List<Bullet> bulletList, MineBomb mineBomb, Airplane airplane, GameScene gameScene, Helli helli, Bullet bullet) : base(game)
         {
             this.helli = helli;
             this.helliList = helliList;
@@ -47,11 +49,14 @@ namespace FinalProject_KihoonKim_StefanKobetich
             this.missileList = missileList;
             this.mineBombList = mineBombList;
             this.gameScene = gameScene;
+            this.bulletList = bulletList;
+            this.bullet = bullet;
             seccondConstructor = true;
         }
 
         public override void Update(GameTime gameTime)
         {
+            Rectangle bulletRect = new Rectangle();
             Rectangle helliRect = new Rectangle();
             Rectangle missileRect = new Rectangle();
             Rectangle bombRect = new Rectangle();
@@ -102,6 +107,18 @@ namespace FinalProject_KihoonKim_StefanKobetich
                         // Put code for what happens on an inersection here
                         helli.Visible = false;
                         helli.Enabled = false;
+                        HandleCollision();
+                        break;
+                    }
+                }
+                foreach (Bullet b in bulletList)
+                {
+                    bulletRect = b.getBounds();
+                    if (airplaneRect.Intersects(bulletRect))
+                    {
+                        // Put code for what happens on an inersection here
+                        airplane.Visible = false;
+                        airplane.Enabled = false;
                         HandleCollision();
                         break;
                     }

@@ -31,10 +31,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Texture2D airplaneTex;
         private Texture2D airplaneTex1;
         private Texture2D heliTex;
+        private Texture2D bulletTex;
         private Missile missile;
         private Helli helli;
         private MineBomb mineBomb;
         private Coin coin;
+        private Bullet bullet;
         private Airplane airplane;
         private SoundEffect nearMiss;
         private SoundEffect coinCollectSound;
@@ -43,12 +45,16 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private List<MineBomb> mineBombList;
         private List<Coin> coinList;
         private List<Helli> helliList;
+        private List<Bullet> bulletList;
         private int coinListCount = 0;
         private int coinSoundCount = 0;
         private int timeScore = 0;
+        private int bulletCount = 0;
+        private int bulletTimeDelay = 150;
         private int coinScore = 0;
         private int coinPos = 800;
         private int airMinePos = 650;
+        private int loopCount = 0;
         private int groundMinePos = 650;
         private int missilePos = 1150;
         private int airMineCount = 24;
@@ -70,6 +76,8 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             coinCollectSound = g.Content.Load<SoundEffect>("audio/coinCollect");
             KeyboardState ks = Keyboard.GetState();
             Vector2 stage = new Vector2(SharingComponent.stage.X, SharingComponent.stage.Y);
+            heliTex = g.Content.Load<Texture2D>("images/heli");
+            bulletTex = g.Content.Load<Texture2D>("images/bullet");
 
             // Addition of airplane
             //Texture2D airplaneTex = game.Content.Load<Texture2D>("images/AirPlane1");
@@ -143,13 +151,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 mineBomb.Show();
             }
 
-            missileList = this.Components.OfType<Missile>().ToList();
-            mineBombList = this.Components.OfType<MineBomb>().ToList();
-            coinList = this.Components.OfType<Coin>().ToList();
-            helliList = this.Components.OfType<Helli>().ToList();
-
-            _collisionManager = new CollisionManager(g, missileList, mineBombList, helliList, coinList, mineBomb, airplane, this, helli); // 수정된 부분
-            this.Components.Add(_collisionManager);
         }
 
         // Controls what makes the game objects appear
@@ -172,6 +173,33 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 passed = true;
                 EndGame();
             }
+            if (timeScore == 125)
+            {
+                helli = new Helli(g, _spriteBatch, heliTex, new Vector2(45, 75), 5);
+                this.Components.Add(helli);
+                helli.Show();
+            }
+            if (bulletCount == 20)
+            {
+                helli.Hide();
+            }
+            else
+            {
+                if (timeScore == bulletTimeDelay)
+                {
+                    if (loopCount == 0)
+                    {
+                        AddBullet();
+                    }
+                }
+                if (timeScore == bulletTimeDelay + 1)
+                {
+                    int randomDelay = RandomNumberGenerator.GetInt32(25, 100);
+                    loopCount = 0;
+                    bulletTimeDelay += randomDelay;
+                }
+            }
+
 
             coinList = this.Components.OfType<Coin>().ToList();
             foreach (Coin coin in coinList)
@@ -188,17 +216,29 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
             coinListCount = 0;
 
-            double time = gameTime.ElapsedGameTime.TotalSeconds;
-
-            if (time == 0.02)
-            {
-                heliTex = g.Content.Load<Texture2D>("images/heli");
-                helli = new Helli(g, _spriteBatch, heliTex, new Vector2(50, 75), 5);
-                this.Components.Add(helli);
-                helli.Show();
-            }
+            this.Components.Remove(_collisionManager);
+            coinList = this.Components.OfType<Coin>().ToList();
+            helliList = this.Components.OfType<Helli>().ToList();
+            bulletList = this.Components.OfType<Bullet>().ToList();
+            missileList = this.Components.OfType<Missile>().ToList();
+            mineBombList = this.Components.OfType<MineBomb>().ToList();
+            _collisionManager = new CollisionManager(g, missileList, mineBombList, helliList, coinList, bulletList, mineBomb, airplane, this, helli, bullet);
+            this.Components.Add(_collisionManager);
 
             base.Update(gameTime);
+        }
+        private void AddBullet()
+        {
+            Rectangle helliRect = helli.getBounds();
+            int randomSpeed = RandomNumberGenerator.GetInt32(3, 4);
+            int x = helliRect.X;
+            int y = helliRect.Y;
+
+            bullet = new Bullet(g, _spriteBatch, bulletTex, new Vector2(x, y), 5, randomSpeed);
+            this.Components.Add(bullet);
+            bullet.Show();
+            bulletCount++;
+            loopCount = 1;
         }
 
         private void UpdateScore(float elapsedSeconds)
