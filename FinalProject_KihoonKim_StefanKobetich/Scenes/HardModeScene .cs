@@ -57,7 +57,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private const int coinAmount = 50;
         private float scoreUpdateInterval = 0.05f;
         private float scoreTimer = 0.0f;
-       
+
         private bool passed = false;
         public bool isGameDone = false;
 

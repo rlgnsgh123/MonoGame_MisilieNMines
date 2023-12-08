@@ -18,11 +18,9 @@ namespace FinalProject_KihoonKim_StefanKobetich
         private List<Coin> coinList;
         private List<MineBomb> mineBombList;
         private List<Helli> helliList;
-        private List<Bullet> bulletList;
         private Airplane airplane;
         private MineBomb mineBomb;
         private GameScene gameScene;
-        private Bullet bullet;
         private Helli helli;
         private bool seccondConstructor = false;
 
@@ -38,10 +36,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
             this.mineBombList = mineBombList;
             this.gameScene = gameScene;
         }
-        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Helli> helliList, List<Coin> coinList, List<Bullet> bulletList, MineBomb mineBomb, Airplane airplane, GameScene gameScene, Helli helli, Bullet bullet) : base(game)
+        public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Helli> helliList, List<Coin> coinList, MineBomb mineBomb, Airplane airplane, GameScene gameScene, Helli helli) : base(game)
         {
-            this.bullet = bullet;
-            this.bulletList = bulletList;
             this.helli = helli;
             this.helliList = helliList;
             this.coinList = coinList;
@@ -60,7 +56,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
             Rectangle missileRect = new Rectangle();
             Rectangle bombRect = new Rectangle();
             Rectangle coinRect = new Rectangle();
-            Rectangle bulletRect = new Rectangle();
             Rectangle airplaneRect = airplane.getBounds();
 
             foreach (Missile m in missileList)
@@ -78,7 +73,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             foreach (Coin c in coinList)
             {
                 coinRect = c.getBounds();
-                
+
                 if (airplaneRect.Intersects(coinRect))
                 {
                     c.Visible = false;
@@ -105,20 +100,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
                     if (airplaneRect.Intersects(helliRect))
                     {
                         // Put code for what happens on an inersection here
-                        airplane.Visible = false;
-                        airplane.Enabled = false;
-                        HandleCollision();
-                        break;
-                    }
-                }
-                foreach (Bullet b in bulletList)
-                {
-                    bulletRect = b.getBounds();
-                    if (airplaneRect.Intersects(bulletRect))
-                    {
-                        // Put code for what happens on an inersection here
-                        airplane.Visible = false;
-                        airplane.Enabled = false;
+                        helli.Visible = false;
+                        helli.Enabled = false;
                         HandleCollision();
                         break;
                     }
