@@ -187,6 +187,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             base.Update(gameTime);
         }
 
+        // Method to update the users game score
         private void UpdateScore(float elapsedSeconds)
         {
             scoreTimer += elapsedSeconds;
@@ -202,6 +203,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
         }
 
+        // Draws the score to the user as they play
         private void DrawScore()
         {
             spriteFont = g.Content.Load<SpriteFont>("fonts/NormalFont");
@@ -210,6 +212,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             _spriteBatch.End();
         }
 
+        // Method that gets called when the game ends, handles game ending functions
         public void EndGame()
         {
             coinList = this.Components.OfType<Coin>().ToList();

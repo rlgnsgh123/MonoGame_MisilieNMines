@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace FinalProject_KihoonKim_StefanKobetich
 {
+    /// <summary>
+    /// CollisionManager class to check to see if anthing is intersecting and the opertaion if so 
+    /// </summary>
     public class CollisionManager : GameComponent
     {
         private Game game;
@@ -28,6 +31,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
 
         private int numberGetCoin = 0;
 
+        // Constructor 1, used by the easyStartScene to configure the CollisionManager
         public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Coin> coinList, MineBomb mineBomb, Airplane airplane, GameScene gameScene) : base(game)
         {
             this.coinList = coinList;
@@ -38,6 +42,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
             this.mineBombList = mineBombList;
             this.gameScene = gameScene;
         }
+
+        // Constructor 2, used by the hardStartScene to configure the CollisionManager
         public CollisionManager(Game game, List<Missile> missileList, List<MineBomb> mineBombList, List<Helli> helliList, List<Coin> coinList, List<Bullet> bulletList, MineBomb mineBomb, Airplane airplane, GameScene gameScene, Helli helli, Bullet bullet) : base(game)
         {
             this.helli = helli;
@@ -54,6 +60,7 @@ namespace FinalProject_KihoonKim_StefanKobetich
             seccondConstructor = true;
         }
 
+        // Method that updates to check for collisions
         public override void Update(GameTime gameTime)
         {
             Rectangle bulletRect = new Rectangle();
@@ -127,6 +134,8 @@ namespace FinalProject_KihoonKim_StefanKobetich
 
             base.Update(gameTime);
         }
+
+        // Method that gets called when a collision takes place
         private void HandleCollision()
         {
             // 게임 모드에 따른 처리를 수행합니다.
@@ -140,9 +149,6 @@ namespace FinalProject_KihoonKim_StefanKobetich
                 HardModeScene hardModeScene = (HardModeScene)gameScene;
                 hardModeScene.EndGame();
             }
-
-
-
         }
     }
 }

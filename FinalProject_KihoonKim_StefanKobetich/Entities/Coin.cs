@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Entities
 {
+    /// <summary>
+    /// Coin Class that allows the creation of collectable Coins and handles all Coin logic
+    /// </summary>
     public class Coin : DrawableGameComponent
     {
         private SpriteBatch sb;
