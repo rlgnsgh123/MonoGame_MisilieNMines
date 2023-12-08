@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj": {}
+    "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj": {}
   },
   "projects": {
-    "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj": {
+    "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
+        "projectUniqueName": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
         "projectName": "FinalProject_KihoonKim_StefanKobetich",
-        "projectPath": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
-        "packagesPath": "C:\\Users\\rlgns\\.nuget\\packages\\",
-        "outputPath": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\obj\\",
+        "projectPath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
+        "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\rlgns\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stefa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,7 +72,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
