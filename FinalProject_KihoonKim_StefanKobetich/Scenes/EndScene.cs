@@ -64,26 +64,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             if (passed == false)
             {
                 kaboomSound.Play();
-                //kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5); // Doesnt work
-                //this.Components.Add(kaboom);
-                //kaboom.Show();
-                //location.Y = location.Y + kaboomMoveSize;
-                //kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
-                //this.Components.Add(kaboom);
-                //kaboom.Show();
-                //location.Y = location.Y - (kaboomMoveSize * 2);
-                //kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
-                //this.Components.Add(kaboom);
-                //kaboom.Show();
-                //location.X = location.X + kaboomMoveSize;
-                //location.Y = location.Y + kaboomMoveSize;
-                //kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
-                //this.Components.Add(kaboom);
-                //kaboom.Show();
-                //location.X = location.X - (kaboomMoveSize * 2);
-                //kaboom = new Kaboom(game, _spriteBatch, kaboomTex, location, 5);
-                //this.Components.Add(kaboom);
-                //kaboom.Show();
             }
             else
             {

@@ -7530,11 +7530,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\MissilesNMinesEscape.csproj",
       "projectName": "MissilesNMinesEscape",
       "projectPath": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\MissilesNMinesEscape.csproj",
       "packagesPath": "C:\\Users\\rlgns\\.nuget\\packages\\",
       "outputPath": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\Missiles 'n Mines Escape.csproj",
+      "projectName": "Missiles 'n Mines Escape",
+      "projectPath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\Missiles 'n Mines Escape.csproj",
+      "packagesPath": "C:\\Users\\stefa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stefa\\Documents\\GitHub\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\obj\\",
+>>>>>>> 09ee021443746f7d5c05024f90c70c18c16be5eb
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
