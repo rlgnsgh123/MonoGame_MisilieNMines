@@ -1,0 +1,7 @@
+Stefan,1200,Hard Mode
+Kihoon,300,Easy Mode
+Jimyung,900,Hard Mode
+Will,400,Easy Mode
+Kisun,800,Hard Mode
+kihoonadsf,498,Easy Mode
+kihoon93,508,Hard Mode

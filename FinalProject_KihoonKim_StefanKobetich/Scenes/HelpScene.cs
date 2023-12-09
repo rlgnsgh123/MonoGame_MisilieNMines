@@ -16,8 +16,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     /// </summary>
     public class HelpScene : GameScene
     {
-        private Texture2D tex;
-        private SpriteBatch sb;
         private Texture2D image;
         private SpriteBatch _spriteBatch;
         private Game g;

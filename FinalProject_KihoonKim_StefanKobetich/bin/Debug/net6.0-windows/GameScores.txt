@@ -1,2 +1,14 @@
 kihoon,56,Easy Mode
 ffcc,72,Easy Mode
+ffff,154,Easy Mode
+f,85,Easy Mode
+fff,61,Easy Mode
+gf,44,Easy Mode
+fg,71,Easy Mode
+f,97,Easy Mode
+ffff,92,Easy Mode
+ffff,138,Easy Mode
+fff,74,Easy Mode
+klk,77,Hard Mode
+jjjjj,86,Easy Mode
+asdasd,158,Easy Mode

@@ -14,13 +14,17 @@ using FinalProject_KihoonKim_StefanKobetich.Manager;
 
 namespace FinalProject_KihoonKim_StefanKobetich.Scenes
 {
+    /// <summary>
+    /// EndScene class that is used when the player etheir wins or dies. Dislpays the users game stats and allows replay
+    /// </summary>
     public class EndScene : GameScene
     {
         private static bool isFormShown = false;
         private static bool isSubmitName = false;
         private Form1 finalPlayerNameInput;
         private SpriteBatch _spriteBatch;
-        private SpriteFont _spriteFont;
+        private SpriteFont gameOverFont;
+        private SpriteFont normalFont;
         StartScene startScene;
 
         private PlayerInfo playerInfo;
@@ -40,11 +44,13 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private bool passed;
         Game1 g;
 
+        // Constructor to build the end scene. Notice passed for indicating if they acually won the level or not
         public EndScene(Game game, int timeScore, int coinScore, string mode, Vector2 location, bool passed) : base(game)
         {
             playerInfo = new PlayerInfo();
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
-            _spriteFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
+            gameOverFont = game.Content.Load<SpriteFont>("fonts/GameOverFont");
+            normalFont = game.Content.Load<SpriteFont>("fonts/GameModeNormalFont");
             this.timeScore = timeScore;
             this.coinScore = coinScore;
             playerInfo.GameMode = mode;
@@ -89,23 +95,26 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             //
 
             //
-            retryRect = new Rectangle(100, 400, 200, 50);
-            exitRect = new Rectangle(400, 400, 200, 50);
+            retryRect = new Rectangle(300, 410, 100, 50);
+            exitRect = new Rectangle(460, 410, 100, 50);
             hide();
         }
 
+        // Draws the endScene to the user
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_spriteFont, $"Game Over\nSurvival Score: {timeScore}\nCoins Collected: {coinScore}\nFinal Score: {finalScore} {bonusMsg}", new Vector2(100, 100), Color.White);
-            _spriteBatch.DrawString(_spriteFont, "Retry", new Vector2(retryRect.X, retryRect.Y), Color.White);
-            _spriteBatch.DrawString(_spriteFont, "Exit", new Vector2(exitRect.X, exitRect.Y), Color.White);
+            _spriteBatch.DrawString(gameOverFont, $"Game Over", new Vector2(170, 75), Color.OrangeRed);
+            _spriteBatch.DrawString(normalFont, $"Survival Score      : {timeScore}\n\nCoins Collected     : {coinScore}\n\nFinal Score            : {finalScore} {bonusMsg}", new Vector2(220, 200), Color.Black);
+            _spriteBatch.DrawString(normalFont, "Retry", new Vector2(retryRect.X, retryRect.Y), Color.Orange);
+            _spriteBatch.DrawString(normalFont, "Exit", new Vector2(exitRect.X, exitRect.Y), Color.Orange);
 
             _spriteBatch.End();
 
             //base.Draw(gameTime);
         }
 
+        // If the endscene is enabled, call the handle input class
         public override void Update(GameTime gameTime)
         {
             if (this.Enabled)
@@ -115,6 +124,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             }
         }
 
+        
         private void SavePlayerInfo()
         {
 
@@ -129,6 +139,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             SavingScoreManager.AddNewPlayerInfo(currentPlayerInfo);
         }
 
+        // Method that hadles the user input to save a score
         private void HandleInput()
         {
             KeyboardState ks = Keyboard.GetState();
@@ -182,6 +193,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 SavePlayerInfo();
             }
         }
+        // Method to play music, here to reduce redundancy
         private void PlayMusic()
         {
             Song backgroundMusic = g.Content.Load<Song>("audio/Nio");

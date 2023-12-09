@@ -23,8 +23,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         public int SelectedIndex { get; set; }
 
         private Vector2 position;
-        private Color normalColor = Color.WhiteSmoke;
+        private Color normalColor = Color.Black;
         private Color selectedColor = Color.DarkRed;
+
+
+        private Color modeNormalColor = Color.Navy;
+        private Color modeSelectedColor = Color.Red;
 
         private string type;
         
@@ -49,7 +53,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                 this.normalFont = regularFont;
                 this.selectedFont = hilightFont;
                 menuLists = menus.ToList();
-                position = new Vector2(SharingComponent.stage.X / 4, SharingComponent.stage.Y / 2);
+                position = new Vector2(350, 100);
                 this.type = "PlayMenu";
             }
            
@@ -116,12 +120,12 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                     if (SelectedIndex == i)
                     {
                         spriteBatch.DrawString(selectedFont, menuLists[i], temPos, selectedColor);
-                        temPos.Y += selectedFont.LineSpacing;
+                        temPos.Y += 50;
                     }
                     else
                     {
                         spriteBatch.DrawString(normalFont, menuLists[i], temPos, normalColor);
-                        temPos.Y += normalFont.LineSpacing;
+                        temPos.Y += 50;
                     }
 
                 }
@@ -130,14 +134,14 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
                     if (SelectedIndex == i)
                     {
                         Vector2 pos = new Vector2(100,100);
-                        spriteBatch.DrawString(selectedFont, menuLists[i], temPos, selectedColor);
-                        temPos.X += 300;
+                        spriteBatch.DrawString(selectedFont, menuLists[i], temPos, modeSelectedColor);
+                        temPos.X += 200;
                     }
                     else
                     {
                         Vector2 pos = new Vector2(300, 100);
-                        spriteBatch.DrawString(normalFont, menuLists[i], temPos, normalColor);
-                        temPos.X += 300;
+                        spriteBatch.DrawString(normalFont, menuLists[i], temPos, modeNormalColor);
+                        temPos.X += 200;
                     }
 
                 }

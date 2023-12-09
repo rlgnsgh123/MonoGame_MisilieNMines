@@ -7530,9 +7530,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
-      "projectName": "FinalProject_KihoonKim_StefanKobetich",
-      "projectPath": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\FinalProject_KihoonKim_StefanKobetich.csproj",
+      "projectUniqueName": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\MissilesNMinesEscape.csproj",
+      "projectName": "MissilesNMinesEscape",
+      "projectPath": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\MissilesNMinesEscape.csproj",
       "packagesPath": "C:\\Users\\rlgns\\.nuget\\packages\\",
       "outputPath": "C:\\Level3-Prog2370-Game Programming\\FinalProject\\FinalGameProgramming\\FinalProject_KihoonKim_StefanKobetich\\obj\\",
       "projectStyle": "PackageReference",

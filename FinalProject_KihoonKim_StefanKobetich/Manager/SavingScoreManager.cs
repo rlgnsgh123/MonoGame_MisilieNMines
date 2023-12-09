@@ -12,7 +12,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Manager
 {
     public class SavingScoreManager
     {
-        private const string logsPath = "./HighScores.txt";
+        private const string logsPath = "./GameScores.txt";
+
+
 
         static public void MakingFile()
         {
@@ -20,7 +22,25 @@ namespace FinalProject_KihoonKim_StefanKobetich.Manager
             {
                 var textFile = File.Create(logsPath);
                 textFile.Close();
+                SeedPlayerScores();
             }
+           
+        }
+        static void SeedPlayerScores()
+        {
+            using StreamWriter streamWriter = File.AppendText(logsPath);
+
+            string line1 = "Stefan,1200,Hard Mode";
+            string line2 = "Kihoon,300,Easy Mode";
+            string line3 = "Jimyung,900,Hard Mode";
+            string line4 = "Will,400,Easy Mode";
+            string line5 = "Kisun,800,Hard Mode";
+            
+            streamWriter.WriteLine(line1);
+            streamWriter.WriteLine(line2);
+            streamWriter.WriteLine(line3);
+            streamWriter.WriteLine(line4);
+            streamWriter.WriteLine(line5);
         }
 
         public static List<PlayerInfo> LoadGameScores()

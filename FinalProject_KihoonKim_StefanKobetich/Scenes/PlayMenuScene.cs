@@ -14,37 +14,46 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
     /// </summary>
     public class PlayMenuScene : GameScene
     {
-       
+
+        
+
         bool isFirst = true;
         EasyModeScene easyModeScene;
         HardModeScene hardModeScene;
+
+        
 
         private MenuComponent menu;
         public MenuComponent Menu { get => menu; set => menu = value; }
 
         private SpriteBatch _spriteBatch;
+        private Texture2D image;
         SpriteFont normalFont;
 
         Game1 g;
 
+
         // Loads the selection screen for if the user wants hard mode or easy mode
         public PlayMenuScene(Game game) : base(game)
         {
-
+            g = (Game1)game;
             _spriteBatch = new SpriteBatch(game.GraphicsDevice);
-           
-            easyModeScene = new EasyModeScene(game);
+
+            image = g.Content.Load<Texture2D>("Intro");
+
+            easyModeScene = new EasyModeScene(g);
             game.Components.Add(easyModeScene);
            
-            hardModeScene = new HardModeScene(game);
-            game.Components.Add(hardModeScene);
+            hardModeScene = new HardModeScene(g);
+            g.Components.Add(hardModeScene);
             
 
             g = (Game1)game;
-            normalFont = game.Content.Load<SpriteFont>("fonts/NormalFont");
-            SpriteFont selectedFont = game.Content.Load<SpriteFont>("fonts/SelectedFont");
-            string[] menuItems = { "EasyMode","HardMode" };
-            Menu = new MenuComponent(g, g._spriteBatch, normalFont, selectedFont, menuItems,"PlayMenu");
+            normalFont = game.Content.Load<SpriteFont>("fonts/ExpainFont");
+            SpriteFont modelNormalFont = g.Content.Load<SpriteFont>("fonts/GameModeNormalFont");
+            SpriteFont modeSelectedFont = g.Content.Load<SpriteFont>("fonts/GameModeSelectedFont");
+            string[] menuItems = { "Easy Mode","Hard Mode" };
+            Menu = new MenuComponent(g, g._spriteBatch, modelNormalFont, modeSelectedFont, menuItems,"PlayMenu");
             this.Components.Add(Menu);
         }
 
@@ -72,7 +81,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(normalFont, $"To choose game mode, please click space", new Vector2(100, 100), Color.White);
+            string info = "Please click space to choose Game Mode";
+            _spriteBatch.DrawString(normalFont,info, new Vector2(50, 50), Color.Black);
+            _spriteBatch.Draw(image, new Vector2(45, 130), Color.White);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

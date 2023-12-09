@@ -4,26 +4,42 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/coinCollect.wav</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/daftyMusic.mp3</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/Nio.mp3</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/NormalFont.spritefont</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/PlayerNameFont.spritefont</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/SelectedFont.spritefont</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/AirPlane.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/AirPlane1.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/bullet.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/coin.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/credits.jpg</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/floatingMineBomb.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/heli.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/Help.jpg</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/kaboom.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/mineBombGroundHigh.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/MissileFire.png</File>
-    <File>C:/Users/stefa/Documents/GitHub/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/smallMissile.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/../../../../../Users/rlgns/Downloads/background.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/coinCollect.wav</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/daftyMusic.mp3</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/audio/Nio.mp3</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/ContentFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/ExpainFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/GameModeNormalFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/GameModeSelectedFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/GameOverFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/NormalFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/PlayerNameFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/fonts/SelectedFont.spritefont</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/AirPlane.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/AirPlane1.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/bullet.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/coin.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/credits.jpg</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/floatingMineBomb.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/heli.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/Help.jpg</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/Image.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/Intro.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/kaboom.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/mineBombGroundHigh.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/MissileFire.png</File>
+    <File>C:/Level3-Prog2370-Game Programming/FinalProject/FinalGameProgramming/FinalProject_KihoonKim_StefanKobetich/Content/images/smallMissile.png</File>
   </SourceFiles>
   <DestFiles>
+    <File>images/background.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

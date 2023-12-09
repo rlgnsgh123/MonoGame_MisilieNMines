@@ -159,10 +159,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             UpdateScore(elapsedSeconds);
             // TODO: Add your update logic here
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            {
-                g.Exit();
-            }
+           
             if (isGameDone)
             {
                 EndGame();
@@ -262,9 +259,9 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         // Draws the score to the user as they play
         private void DrawScore()
         {
-            spriteFont = g.Content.Load<SpriteFont>("fonts/NormalFont");
+            spriteFont = g.Content.Load<SpriteFont>("fonts/GameModeSelectedFont");
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(spriteFont, "Score: " + timeScore, new Vector2(10, 10), Color.White);
+            _spriteBatch.DrawString(spriteFont, "Score: " + timeScore, new Vector2(10, 10), Color.OrangeRed);
             _spriteBatch.End();
         }
 
