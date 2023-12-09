@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Entities
+namespace MissilesNMinesEscape.Entities
 {
     /// <summary>
     /// Bullet Class that allows the creation of a bullet and handles all bullet logic

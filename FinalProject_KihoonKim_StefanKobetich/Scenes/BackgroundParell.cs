@@ -6,19 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
+    /// <summary>
+    /// Class to support the background of the game
+    /// </summary>
     public class BackgroundParell : DrawableGameComponent
     {
-        /// <summary>
-        /// Class to support the background of the game
-        /// </summary>
+
 
         private SpriteBatch sb;
         private Texture2D tex;
-        // 우리는 2개의 position이 필요해왜냐하면 두개의 이미지가 이동하면서 계속 보여줘야하니까
+
         private Vector2 position1, position2;
-        // Desistination 내가 
         private Rectangle srcRect;
         private Vector2 speed;
 

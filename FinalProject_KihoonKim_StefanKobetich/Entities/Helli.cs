@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Entities
+namespace MissilesNMinesEscape.Entities
 {
     /// <summary>
     /// Missile Class that allows the creation of a missle and handles all missile logic

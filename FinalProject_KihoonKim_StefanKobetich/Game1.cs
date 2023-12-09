@@ -1,6 +1,6 @@
 ﻿
-using FinalProject_KihoonKim_StefanKobetich.Scenes;
-using FinalProject_KihoonKim_StefanKobetich.Shared;
+using MissilesNMinesEscape.Scenes;
+using MissilesNMinesEscape.Shared;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Media;
 using System;
 using System.Linq;
 
-namespace FinalProject_KihoonKim_StefanKobetich
+namespace MissilesNMinesEscape
 {
     /// <summary>
     /// Class that handles the main menu logic. Allows navigation to the other scenes

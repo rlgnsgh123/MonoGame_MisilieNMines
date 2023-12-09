@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
     public abstract class GameScene : DrawableGameComponent
     {

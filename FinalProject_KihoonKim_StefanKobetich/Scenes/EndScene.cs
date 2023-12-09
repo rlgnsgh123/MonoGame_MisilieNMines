@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using FinalProject_KihoonKim_StefanKobetich.Entities;
+using MissilesNMinesEscape.Entities;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 using FinalPlayerNameInput;
-using FinalProject_KihoonKim_StefanKobetich.Manager;
+using MissilesNMinesEscape.Manager;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
     /// <summary>
     /// EndScene class that is used when the player etheir wins or dies. Dislpays the users game stats and allows replay

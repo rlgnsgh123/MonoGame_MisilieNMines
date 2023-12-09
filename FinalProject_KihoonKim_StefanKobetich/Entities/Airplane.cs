@@ -1,5 +1,5 @@
 ﻿
-using FinalProject_KihoonKim_StefanKobetich.Shared;
+using MissilesNMinesEscape.Shared;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Entities
+namespace MissilesNMinesEscape.Entities
 {
     /// <summary>
     /// Airplane Class that allows the creation of a Airplane and handles all Airplane logic

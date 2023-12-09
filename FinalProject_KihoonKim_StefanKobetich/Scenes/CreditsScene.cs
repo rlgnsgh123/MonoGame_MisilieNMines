@@ -1,4 +1,4 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Scenes;
+﻿using MissilesNMinesEscape.Scenes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
     /// <summary>
     /// Help scene to display the credits

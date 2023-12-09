@@ -11,8 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Missiles \'n Mines Escape")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Kihoon&Stefan")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Kihoon&Stefan")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Escape missiles and mines")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Missiles \'n Mines Escape")]

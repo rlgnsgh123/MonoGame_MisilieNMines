@@ -1,5 +1,5 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Entities;
-using FinalProject_KihoonKim_StefanKobetich.Shared;
+﻿using MissilesNMinesEscape.Entities;
+using MissilesNMinesEscape.Shared;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -11,7 +11,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
     /// <summary>
     /// Easy gamemode game class: The class that houses the easy version of the game

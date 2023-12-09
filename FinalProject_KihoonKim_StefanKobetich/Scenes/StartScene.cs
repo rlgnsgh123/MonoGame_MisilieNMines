@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Media;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
     /// <summary>
     /// Opening secene that contains the menu. First thing the user sees when program opens
@@ -43,6 +43,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
             
             this.Components.Add(Menu);
         }
+
         // Draws the icon to the user
         public override void Draw(GameTime gameTime)
         {

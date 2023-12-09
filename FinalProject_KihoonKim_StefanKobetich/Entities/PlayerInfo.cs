@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Entities
+namespace MissilesNMinesEscape.Entities
 {
     /// <summary>
     /// Player info class to share data imbetween classes 

@@ -1,4 +1,4 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Shared;
+﻿using MissilesNMinesEscape.Shared;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
     /// <summary>
     /// Class for the menu logic, used in the startScene class
@@ -31,8 +31,7 @@ namespace FinalProject_KihoonKim_StefanKobetich.Scenes
         private Color modeSelectedColor = Color.Red;
 
         private string type;
-        
-        // 눌리는거 하나만 이동하게 하는거
+       
         private KeyboardState preStage;
 
         // Constructor to build the menu

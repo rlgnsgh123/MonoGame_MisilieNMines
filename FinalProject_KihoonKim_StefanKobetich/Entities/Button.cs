@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Entities
+namespace MissilesNMinesEscape.Entities
 {
     /// <summary>
     /// Button Class that allows the use of buttons in our game. Used for the user to choose

@@ -1,5 +1,5 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Entities;
-using FinalProject_KihoonKim_StefanKobetich.Scenes;
+﻿using MissilesNMinesEscape.Entities;
+using MissilesNMinesEscape.Scenes;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich
+namespace MissilesNMinesEscape
 {
     /// <summary>
     /// CollisionManager class to check to see if anthing is intersecting and the opertaion if so 

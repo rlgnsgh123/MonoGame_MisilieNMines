@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework.Graphics; 
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Entities
+namespace MissilesNMinesEscape.Entities
 {
     /// <summary>
     /// Coin Class that allows the creation of collectable Coins and handles all Coin logic

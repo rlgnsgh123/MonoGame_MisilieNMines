@@ -1,4 +1,4 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Entities;
+﻿using MissilesNMinesEscape.Entities;
 using SharpDX.Direct3D9;
 using System;
 using System.Collections.Generic;
@@ -8,13 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Manager
+namespace MissilesNMinesEscape.Manager
 {
     public class SavingScoreManager
     {
         private const string logsPath = "./GameScores.txt";
-
-
 
         static public void MakingFile()
         {
@@ -59,7 +57,6 @@ namespace FinalProject_KihoonKim_StefanKobetich.Manager
                         PlayerName = eachScore[0],
                         PlayerScore = int.Parse(eachScore[1]),
                         GameMode = eachScore[2]
-
                     };
                     highScores.Add(playerInfo);
                 }

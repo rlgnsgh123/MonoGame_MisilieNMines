@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-<<<<<<< HEAD:MissilesNMinesEscape.sln
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissilesNMinesEscape", "FinalProject_KihoonKim_StefanKobetich\MissilesNMinesEscape.csproj", "{A768E98E-2E57-4338-9ADA-9928C564BE15}"
-=======
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Missiles 'n Mines Escape", "FinalProject_KihoonKim_StefanKobetich\Missiles 'n Mines Escape.csproj", "{A768E98E-2E57-4338-9ADA-9928C564BE15}"
->>>>>>> 09ee021443746f7d5c05024f90c70c18c16be5eb:FinalProject_KihoonKim_StefanKobetich.sln
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

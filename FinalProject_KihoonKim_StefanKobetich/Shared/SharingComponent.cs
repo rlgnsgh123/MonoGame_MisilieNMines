@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProject_KihoonKim_StefanKobetich.Shared
+namespace MissilesNMinesEscape.Shared
 {
     /// <summary>
     /// Class to share the Vector2 stage between the classes. Only using one class and one public variable

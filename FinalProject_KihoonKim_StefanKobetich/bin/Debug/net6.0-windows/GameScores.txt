@@ -12,3 +12,4 @@ fff,74,Easy Mode
 klk,77,Hard Mode
 jjjjj,86,Easy Mode
 asdasd,158,Easy Mode
+rlgns,312,Hard Mode

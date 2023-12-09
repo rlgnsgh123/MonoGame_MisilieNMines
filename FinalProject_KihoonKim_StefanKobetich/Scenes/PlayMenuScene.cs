@@ -1,4 +1,4 @@
-﻿using FinalProject_KihoonKim_StefanKobetich.Entities;
+﻿using MissilesNMinesEscape.Entities;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
@@ -7,21 +7,15 @@ using System.IO;
 
 
 
-namespace FinalProject_KihoonKim_StefanKobetich.Scenes
+namespace MissilesNMinesEscape.Scenes
 {
     /// <summary>
     /// Menu that is brought up after selecting to play a game
     /// </summary>
     public class PlayMenuScene : GameScene
     {
-
-        
-
-        bool isFirst = true;
         EasyModeScene easyModeScene;
-        HardModeScene hardModeScene;
-
-        
+        HardModeScene hardModeScene;     
 
         private MenuComponent menu;
         public MenuComponent Menu { get => menu; set => menu = value; }
